@@ -1,0 +1,30 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Write a description of class DreamWorld here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class DreamWorld extends World
+{
+    private int frameCount = 0;
+    /**
+     * Constructor for objects of class DreamWorld.
+     * 
+     */
+    public DreamWorld()
+    {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        super(600, 400, 1); 
+    }
+    
+    public void act() {
+        frameCount++;
+        
+        if(frameCount >= 1000) {
+            FarmWorld world = new FarmWorld();
+            Greenfoot.setWorld(world);
+        }
+    }
+}
