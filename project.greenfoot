@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Sun Apr 30 15:35:09 PDT 2017
+#Tue May 02 19:01:01 PDT 2017
 class.StartScreen.superclass=greenfoot.World
 readme.name=@README
 class.Bird.image=flying bird 1.png
@@ -17,14 +17,16 @@ target2.y=70
 package.numTargets=3
 target2.x=70
 target1.height=50
-class.Pig.image=pig.png
+class.Moveable.superclass=greenfoot.Actor
+class.FarmWorld.superclass=greenfoot.World
 editor.swing.0.y=24
 class.Pig.superclass=greenfoot.Actor
 editor.swing.0.x=140
-class.DreamPig.superclass=greenfoot.Actor
 target1.y=10
+class.DreamPig.superclass=greenfoot.Actor
 target2.height=50
 target1.x=160
+class.Ground.superclass=greenfoot.Actor
 dependency1.to=IntroWorld
 editor.fx.0.height=722
 target3.height=50
@@ -33,8 +35,8 @@ target3.typeParameters=
 target1.name=StartScreen
 editor.swing.0.width=793
 editor.fx.0.width=800
-target2.typeParameters=
 readme.y=10
+target2.typeParameters=
 target3.name=MyWorld
 class.IntroWorld.superclass=greenfoot.World
 readme.x=10
@@ -56,7 +58,7 @@ target2.type=ClassTarget
 world.lastInstantiated=StartScreen
 editor.swing.0.height=722
 dependency1.type=UsesDependency
-version=2.8.0
+version=3.0.0
 package.numDependencies=1
 project.charset=UTF-8
 readme.height=58

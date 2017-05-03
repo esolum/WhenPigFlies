@@ -22,6 +22,8 @@ public class FarmWorld extends World
         
         Bird bird = new Bird(700, 200);
         addObject(bird, 700, 200);
+        
+        
     }
     
     public void act() {

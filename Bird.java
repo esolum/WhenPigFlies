@@ -83,7 +83,7 @@ public class Bird extends Actor
             y++;  
             // Add velocity and update positon (slowing down with delta)
             x = y*y + 200;
-            System.out.println("X: " + x + "   y: " + y);
+            //System.out.println("X: " + x + "   y: " + y);
             setLocation(x, y);
         }
         else {
