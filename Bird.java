@@ -96,5 +96,5 @@ public class Bird extends Actor
     public void talkToPig() {
         animateTalking();
         
-    }
+    }   
 }

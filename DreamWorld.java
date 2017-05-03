@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class DreamWorld extends World
 {
+
     private int frameCount = 0;
     /**
      * Constructor for objects of class DreamWorld.

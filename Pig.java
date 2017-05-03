@@ -6,11 +6,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Pig extends Actor
+public class Pig extends Moveable
 {
     private int hSpeed = 7;
     private double vSpeed = 5.0;
-    private double moveSpeed = 2.0;
+    private double moveSpeed = 7.0;
     private double acceleration = 2.0;
     private double jumpStrength = 20;
     GreenfootImage headbuttStandingLeft = new GreenfootImage("pigSprites/headbuttStandingLeft.png");
@@ -29,6 +29,7 @@ public class Pig extends Actor
     GreenfootImage walkLeft2 = new GreenfootImage("pigSprites/walkLeft2.png");
     GreenfootImage walkRight1 = new GreenfootImage("pigSprites/walkRight1.png");
     GreenfootImage walkRight2 = new GreenfootImage("pigSprites/walkRight2.png");
+    
     public Pig()
     {
         setImage(standingRight);
@@ -46,24 +47,49 @@ public class Pig extends Actor
         if (Greenfoot.isKeyDown("left"))
         {
             //setImage();
-            /* if (getImage() == standingLeft)
+            if (!Greenfoot.isKeyDown("up"))
             {
-                setImage(walkLeft1);
+            
+                if (getImage() == standingLeft)
+                {
+                    setImage(walkLeft1);
+                }
+                else if (getImage() == walkLeft1)
+                {
+                    setImage(walkLeft2);
+                } 
+                else
+                {
+                    setImage(standingLeft);
+                }
             }
-            else if (getImage() == walkLeft1)
-            {
-                setImage(walkLeft2);
-            } */
             //if (!Greenfoot.isKeyDown("up"))
             //{
-                setImage(walkLeft1);
+                //setImage(walkLeft1);
             //}
             moveLeft();
         }
         if (Greenfoot.isKeyDown("right"))
         {
             //setImage();
-            setImage(walkRight1);
+            if (!Greenfoot.isKeyDown("up"))
+            {
+            
+                if (getImage() == standingRight)
+                {
+                    setImage(walkRight1);
+                }
+                else if (getImage() == walkRight1)
+                {
+                    setImage(walkRight2);
+                } 
+                else
+                {
+                    setImage(standingRight);
+                }
+            }
+            //setImage(walkRight1);
+            
             /* if (getImage() == standingRight)
             {
                 setImage(walkRight1);
@@ -146,15 +172,28 @@ public class Pig extends Actor
     }
     public void headbutt()
     {
-        Actor moveable = getOneIntersectingObject(Moveable.class);
+        //Actor moveable = getOneIntersectingObject(Moveable.class);
+        Actor moveable = getOneObjectAtOffset(getImage().getWidth()/2, 0, Moveable.class);
         if (moveable == null)
         {
+            moveable = getOneObjectAtOffset(-getImage().getWidth()/2, 0, Moveable.class);
+            
             //setImage
         }
-        else
+        if (moveable != null)
         {
+            if (getImage() == walkLeft1 || getImage() == walkLeft2 || getImage() == standingLeft)
+            {
+                
+                setImage(headbuttStandingLeft);
+                moveable.setLocation(moveable.getX() - (int)moveSpeed, moveable.getY());
+            }
+            else if (getImage() == walkRight1 || getImage() == walkRight2 || getImage() == standingRight)
+            {
+                setImage(headbuttStandingRight);
+                moveable.setLocation(moveable.getX() + (int)moveSpeed, moveable.getY());
+            } 
             
-            moveable.setLocation(moveable.getX()+ (int)moveSpeed, moveable.getY());
         }
-    }
+    }   
 }
