@@ -29,9 +29,8 @@ public class Pig extends Actor
     GreenfootImage walkLeft2 = new GreenfootImage("pigSprites/walkLeft2.png");
     GreenfootImage walkRight1 = new GreenfootImage("pigSprites/walkRight1.png");
     GreenfootImage walkRight2 = new GreenfootImage("pigSprites/walkRight2.png");
-    public void Pig()
+    public Pig()
     {
-        System.out.println("You loser");
         setImage(standingRight);
     }
     

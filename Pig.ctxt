@@ -2,7 +2,7 @@
 comment0.target=Pig
 comment0.text=\n\ Write\ a\ description\ of\ class\ Pig\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
-comment1.target=void\ Pig()
+comment1.target=Pig()
 comment10.params=
 comment10.target=void\ headbutt()
 comment2.params=
