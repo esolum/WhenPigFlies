@@ -1,0 +1,17 @@
+#Greenfoot properties
+#Tue May 02 18:08:39 PDT 2017
+class.Wearable.superclass=greenfoot.Actor
+mainWindow.width=850
+project.charset=UTF-8
+version=3.0.0
+class.Wings.image=wings.png
+class.Wings.superclass=Wearable
+class.Movable.superclass=Platform
+class.Pig.image=pig.png
+world.lastInstantiated=Level3
+mainWindow.y=40
+class.Pig.superclass=greenfoot.Actor
+mainWindow.x=40
+class.Level3.superclass=greenfoot.World
+class.Platform.superclass=greenfoot.Actor
+mainWindow.height=600
