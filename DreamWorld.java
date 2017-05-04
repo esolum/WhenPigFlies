@@ -23,9 +23,14 @@ public class DreamWorld extends World
     public void act() {
         frameCount++;
         
-        if(frameCount >= 1000) {
-            FarmWorld world = new FarmWorld();
-            Greenfoot.setWorld(world);
+        if(Greenfoot.mouseClicked(this))
+        {
+            FarmWorld farm = new FarmWorld();
+            Greenfoot.setWorld(farm);
+            //MouseInfo mouse=Greenfoot.getMouseInfo();
+            //int mX=mouse.getX(), mY=mouse.getY();
+            // with text top at 80, bottom at 100, left at 350, and right at 450
+            //if(mX>=350 && mX<=450 && mY>=80 && mY<=100) methodName();
         }
     }
 }

@@ -52,7 +52,7 @@ public class Bird extends Actor
     }
     
     public void animateFlying() {
-        if(frameCount % 25 == 0) {
+        if(frameCount % 15 == 0) {
             GreenfootImage curImg = getImage();
             if(curImg == flyImg1) {
                 this.setImage(flyImg2);
@@ -64,7 +64,7 @@ public class Bird extends Actor
         }
     }
     public void animateTalking() {
-        if(frameCount % 50 == 0) {
+        if(frameCount % 25 == 0) {
             GreenfootImage curImg = getImage();
             if(curImg == standingTalking) {
                 this.setImage(standingSilent);
@@ -78,13 +78,10 @@ public class Bird extends Actor
     
     public void flyIn() {
         animateFlying();
-        //y = sqrt(x-500);
-        if(y < 300) {
-            y++;  
-            // Add velocity and update positon (slowing down with delta)
-            x = y*y + 200;
-            //System.out.println("X: " + x + "   y: " + y);
-            setLocation(x, y);
+        
+        if(x > 450) {
+            x--;  
+            setLocation(x, getY());
         }
         else {
             phase++;

@@ -13,6 +13,7 @@ public class Pig extends Moveable
     private double moveSpeed = 7.0;
     private double acceleration = 2.0;
     private double jumpStrength = 20;
+    private boolean canMove = true;
     GreenfootImage headbuttStandingLeft = new GreenfootImage("pigSprites/headbuttStandingLeft.png");
     GreenfootImage headbuttStandingRight = new GreenfootImage("pigSprites/headbuttStandingRight.png");
     GreenfootImage headbuttWalkLeft1 = new GreenfootImage("pigSprites/headbuttWalkLeft1.png");
@@ -38,7 +39,10 @@ public class Pig extends Moveable
     public void act() 
     {
         // Add your action code here.
-        checkKeys();
+        if(canMove) {
+            checkKeys();
+        }
+        
         checkFall();
         //checkMoveable();
     }
@@ -196,4 +200,12 @@ public class Pig extends Moveable
             
         }
     }   
+    
+    public void enableMovement() {
+        canMove = true;
+    }
+    
+    public void disableMovement() {
+        canMove = false;
+    }
 }
