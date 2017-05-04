@@ -14,7 +14,8 @@ public class Pig extends Moveable
     private double acceleration = 2.0;
     private double jumpStrength = 20;
     
-    private int accessories = 0;
+    private int accessories = 0; // 1 -- wings, 2 -- feathers?, 3 -- …
+    
     GreenfootImage headbuttStandingLeft = new GreenfootImage("pigSprites/headbuttStandingLeft.png");
     GreenfootImage headbuttStandingRight = new GreenfootImage("pigSprites/headbuttStandingRight.png");
     GreenfootImage headbuttWalkLeft1 = new GreenfootImage("pigSprites/headbuttWalkLeft1.png");
@@ -288,14 +289,7 @@ public class Pig extends Moveable
             
         }
     } 
-    
-    /* Return:
-     *  0 -- wearing no accessories
-     *  1 -- wings
-     *  2 -- feathers?
-     *  3 -- …
-     */
-    public int checkWearing() {
+    public void checkWearing() {
         Actor wearable = getOneObjectAtOffset(getImage().getWidth() / 2, getImage().getHeight() / 2, Wearable.class);
         if (wearable != null){
             if (wearable instanceof Wings){
@@ -303,10 +297,8 @@ public class Pig extends Moveable
                 //setImage(standingWingsRight);
                 setImage(standingWingsRight);
                 getWorld().removeObject(wearable);
-                return 1;
             }
         }
-        // Add more if's here to check other wearable objects (i.e. feathers, glue, etc)
-        return 0;
+        // Add here to check for other wearable objects (i.e. feathers, glue, etc)
     }
 }
