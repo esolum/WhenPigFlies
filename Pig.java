@@ -38,56 +38,70 @@ public class Pig extends Moveable
     public void act() 
     {
         // Add your action code here.
-        checkKeys();
+        
+            checkKeys();
+        
+        
         checkFall();
+         //if (getX() > 760 && getY() < 120)
+        //{
+            //Greenfoot.setWorld(new Forest2());
+        //}
         //checkMoveable();
     }
     private void checkKeys()
     {
-        if (Greenfoot.isKeyDown("left"))
+        if (getOneObjectAtOffset(-getImage().getWidth()/2, 0, ImpassibleScenery.class) == null)
         {
-            //setImage();
-            if (!Greenfoot.isKeyDown("up"))
+            if (Greenfoot.isKeyDown("left"))
             {
+                //setImage();
+                if (!Greenfoot.isKeyDown("up"))
+                {
             
-                if (getImage() == standingLeft)
-                {
-                    setImage(walkLeft1);
+                    if (getImage() == standingLeft)
+                    {
+                        setImage(walkLeft1);
+                    }
+                    else if (getImage() == walkLeft1)
+                    {
+                        setImage(walkLeft2);
+                    } 
+                    else
+                    {
+                        setImage(standingLeft);
+                    }
                 }
-                else if (getImage() == walkLeft1)
-                {
-                    setImage(walkLeft2);
-                } 
-                else
-                {
-                    setImage(standingLeft);
-                }
-            }
             //if (!Greenfoot.isKeyDown("up"))
             //{
                 //setImage(walkLeft1);
             //}
-            moveLeft();
-        }
-        if (Greenfoot.isKeyDown("right"))
-        {
-            //setImage();
-            if (!Greenfoot.isKeyDown("up"))
-            {
-            
-                if (getImage() == standingRight)
-                {
-                    setImage(walkRight1);
-                }
-                else if (getImage() == walkRight1)
-                {
-                    setImage(walkRight2);
-                } 
-                else
-                {
-                    setImage(standingRight);
-                }
+                moveLeft();
             }
+        }
+        //if (getOneObjectAtOffset(getImage().getWidth()/2, 0, ImpassibleScenery.class) == null)
+        if (getOneIntersectingObject(ImpassibleScenery.class) == null)
+        {
+            if (Greenfoot.isKeyDown("right"))
+            {
+                //setImage();
+                if (!Greenfoot.isKeyDown("up"))
+                {
+            
+                    if (getImage() == standingRight)
+                    {
+                        setImage(walkRight1);
+                    }
+                    else if (getImage() == walkRight1)
+                    {
+                        setImage(walkRight2);
+                    } 
+                    else
+                    {
+                        setImage(standingRight);
+                    }
+                }
+            
             //setImage(walkRight1);
             
             /* if (getImage() == standingRight)
@@ -98,7 +112,9 @@ public class Pig extends Moveable
             {
                 setImage(walkRight2);
             } */
-            moveRight();
+                moveRight();
+            }
+
         }
         if (Greenfoot.isKeyDown("up") && onGround())
         {
@@ -108,6 +124,19 @@ public class Pig extends Moveable
         {
             headbutt();
         }
+        if (Greenfoot.isKeyDown("e"))
+        {
+            Actor food = getOneIntersectingObject(Edible.class);
+            if (food != null)
+            {
+                
+                getWorld().removeObjects(getWorld().getObjects(Forest.class));
+                getWorld().removeObject(food);
+                
+                // NEW IMAGE
+            }
+        }
+                
     }
     public void moveRight()
     {
