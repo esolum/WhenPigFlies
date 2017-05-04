@@ -20,6 +20,7 @@ public class Forest1 extends World
         //Ground ground = new Ground();
         //addObject(ground, getWidth() - (ground.getImage().getWidth()/2), getHeight() - (ground.getImage().getHeight()/2));
         //setBackground(new GreenfootImage("base.jpeg"));
+        
         addObject(new Ground(), 774, 577);
         addObject(new Ground(), 774 - 51, 577);
         addObject(new Ground(), 774 - 2*51, 577);
@@ -41,6 +42,7 @@ public class Forest1 extends World
         addObject(new Ground(), 292 - 51, 483);
         addObject(new Ground(), 292 + 2*51, 483 - 51);
         addObject(new Ground(), 292 + 3*51, 483 - 51);
+        
         
         
         addObject(new Moveable(), 476, 539);

@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Wed May 03 10:37:55 PDT 2017
+#Wed May 03 11:15:15 PDT 2017
 editor.fx.0.height=722
 target2.width=100
 class.Pig.superclass=Moveable
@@ -160,8 +160,8 @@ target4.name=Ground
 readme.y=10
 readme.x=10
 target4.height=50
-readme.height=58
 target12.typeParameters=
-target1.width=80
+readme.height=58
 target13.y=0
+target1.width=80
 target13.x=0

@@ -13,6 +13,8 @@ public class Pig extends Moveable
     private double moveSpeed = 7.0;
     private double acceleration = 2.0;
     private double jumpStrength = 20;
+    
+    private int accessories = 0;
     GreenfootImage headbuttStandingLeft = new GreenfootImage("pigSprites/headbuttStandingLeft.png");
     GreenfootImage headbuttStandingRight = new GreenfootImage("pigSprites/headbuttStandingRight.png");
     GreenfootImage headbuttWalkLeft1 = new GreenfootImage("pigSprites/headbuttWalkLeft1.png");
@@ -30,9 +32,29 @@ public class Pig extends Moveable
     GreenfootImage walkRight1 = new GreenfootImage("pigSprites/walkRight1.png");
     GreenfootImage walkRight2 = new GreenfootImage("pigSprites/walkRight2.png");
     
+    // Wings
+    GreenfootImage headbuttStandingWingsLeft = new GreenfootImage("pigSprites/headbuttStandingWingsLeft.png");
+    GreenfootImage headbuttStandingWingsRight = new GreenfootImage("pigSprites/headbuttStandingWingsRight.png");
+    GreenfootImage headbuttWalkWingsLeft1 = new GreenfootImage("pigSprites/headbuttWalkWingsLeft1.png");
+    GreenfootImage headbuttWalkWingsLeft2 = new GreenfootImage("pigSprites/headbuttWalkWingsLeft2.png");
+    GreenfootImage headbuttWalkWingsRight1 = new GreenfootImage("pigSprites/headbuttWalkWingsRight1.png");
+    GreenfootImage headbuttWalkWingsRight2 = new GreenfootImage("pigSprites/headbuttWalkWingsRight2.png");
+    GreenfootImage jumpWingsLeft1 = new GreenfootImage("pigSprites/jumpWingsLeft1.png");
+    GreenfootImage jumpWingsLeft2 = new GreenfootImage("pigSprites/jumpWingsLeft2.png");
+    GreenfootImage jumpWingsRight1 = new GreenfootImage("pigSprites/jumpWingsRight1.png");
+    GreenfootImage jumpWingsRight2 = new GreenfootImage("pigSprites/jumpWingsRight2.png");
+    GreenfootImage standingWingsLeft = new GreenfootImage("pigSprites/standingWingsLeft.png");
+    GreenfootImage standingWingsRight = new GreenfootImage("pigSprites/standingWingsRight.png");
+    GreenfootImage walkWingsLeft1 = new GreenfootImage("pigSprites/walkWingsLeft1.png");
+    GreenfootImage walkWingsLeft2 = new GreenfootImage("pigSprites/walkWingsLeft2.png");
+    GreenfootImage walkWingsRight1 = new GreenfootImage("pigSprites/walkWingsRight1.png");
+    GreenfootImage walkWingsRight2 = new GreenfootImage("pigSprites/walkWingsRight2.png");
+    
+    
     public Pig()
     {
         setImage(standingRight);
+        accessories = 0;
     }
     
     public void act() 
@@ -40,6 +62,7 @@ public class Pig extends Moveable
         // Add your action code here.
         checkKeys();
         checkFall();
+        checkWearing();
         //checkMoveable();
     }
     private void checkKeys()
@@ -52,15 +75,30 @@ public class Pig extends Moveable
             
                 if (getImage() == standingLeft)
                 {
-                    setImage(walkLeft1);
+                    if (accessories == 1) {
+                        setImage(walkWingsLeft1);
+                    }
+                    else {
+                        setImage(walkLeft1);
+                    }
                 }
                 else if (getImage() == walkLeft1)
                 {
-                    setImage(walkLeft2);
+                    if (accessories == 1) {
+                        setImage(walkWingsLeft2);
+                    }
+                    else {
+                        setImage(walkLeft2);
+                    }
                 } 
                 else
                 {
-                    setImage(standingLeft);
+                    if (accessories == 1) {
+                        setImage(standingWingsLeft);
+                    }
+                    else {
+                        setImage(standingLeft);
+                    }
                 }
             }
             //if (!Greenfoot.isKeyDown("up"))
@@ -77,15 +115,30 @@ public class Pig extends Moveable
             
                 if (getImage() == standingRight)
                 {
-                    setImage(walkRight1);
+                    if (accessories == 1){
+                        setImage(walkWingsRight1);
+                    }
+                    else {
+                        setImage(walkRight1);
+                    }
                 }
                 else if (getImage() == walkRight1)
                 {
-                    setImage(walkRight2);
+                    if (accessories == 1){
+                        setImage(walkWingsRight2);
+                    }
+                    else {
+                        setImage(walkRight2);
+                    }
                 } 
                 else
                 {
-                    setImage(standingRight);
+                    if (accessories == 1){
+                        setImage(standingWingsRight);
+                    }
+                    else {
+                        setImage(standingRight);          
+                    }
                 }
             }
             //setImage(walkRight1);
@@ -125,11 +178,21 @@ public class Pig extends Moveable
         {
             if (getImage() == jumpLeft1)
             {
-                setImage(jumpLeft2);
+                if (accessories == 1){
+                    setImage(jumpWingsLeft2);
+                }
+                else {
+                    setImage(jumpLeft2);
+                }
             }
             else if (getImage() == jumpRight1)
             {
-                setImage(jumpRight2);
+                if (accessories == 1){
+                    setImage(jumpWingsRight2);
+                }
+                else {
+                    setImage(jumpRight2);
+                }
             }
         }
     }
@@ -144,11 +207,21 @@ public class Pig extends Moveable
         {
             if (getImage() == jumpLeft2)
             {
-                setImage(standingLeft);
+                if (accessories == 1){
+                    setImage(standingWingsLeft);
+                }
+                else {
+                    setImage(standingLeft);
+                }
             }
             else if (getImage() == jumpRight2)
             {
-                setImage(standingRight);
+                if (accessories == 1){
+                    setImage(standingWingsRight);
+                }
+                else {
+                    setImage(standingRight);
+                }
             }
             vSpeed = 0;
         }
@@ -161,11 +234,21 @@ public class Pig extends Moveable
     {
         if (getImage() == walkLeft1 || getImage() == walkLeft2 || getImage() == standingLeft)
         {
-            setImage(jumpLeft1);
+            if (accessories == 1){
+                setImage(jumpWingsLeft1);
+            }
+            else {
+                setImage(jumpLeft1);
+            }
         }
         else if (getImage() == walkRight1 || getImage() == walkRight2 || getImage() == standingRight)
         {
-            setImage(jumpRight1);
+            if (accessories == 1){
+                setImage(jumpWingsRight1);
+            }
+            else {
+                setImage(jumpRight1);
+            }
         } 
         vSpeed = -jumpStrength;
         fall();
@@ -184,16 +267,46 @@ public class Pig extends Moveable
         {
             if (getImage() == walkLeft1 || getImage() == walkLeft2 || getImage() == standingLeft)
             {
-                
-                setImage(headbuttStandingLeft);
+                if (accessories == 1){
+                    setImage(headbuttStandingWingsLeft);
+                }
+                else {
+                    setImage(headbuttStandingLeft);
+                }
                 moveable.setLocation(moveable.getX() - (int)moveSpeed, moveable.getY());
             }
             else if (getImage() == walkRight1 || getImage() == walkRight2 || getImage() == standingRight)
             {
-                setImage(headbuttStandingRight);
+                if (accessories == 1){
+                    setImage(headbuttStandingWingsRight);
+                }
+                else {
+                    setImage(headbuttStandingRight);
+                }
                 moveable.setLocation(moveable.getX() + (int)moveSpeed, moveable.getY());
             } 
             
         }
-    }   
+    } 
+    
+    /* Return:
+     *  0 -- wearing no accessories
+     *  1 -- wings
+     *  2 -- feathers?
+     *  3 -- …
+     */
+    public int checkWearing() {
+        Actor wearable = getOneObjectAtOffset(getImage().getWidth() / 2, getImage().getHeight() / 2, Wearable.class);
+        if (wearable != null){
+            if (wearable instanceof Wings){
+                accessories = 1;
+                //setImage(standingWingsRight);
+                setImage(standingWingsRight);
+                getWorld().removeObject(wearable);
+                return 1;
+            }
+        }
+        // Add more if's here to check other wearable objects (i.e. feathers, glue, etc)
+        return 0;
+    }
 }
