@@ -14,10 +14,35 @@ public class Forest4 extends World
      * 
      */
     public Forest4()
+    {
+        super(800, 600, 1); 
+        setup();
+        addObject(pig4, 45, 545);
+        addObject(new PassableForest(), 670, 380);
+        addObject(new Forest(), 670, 380);
+        addObject(new Mushroom(), 42, 74);
+    }
+    public Forest4(boolean returning)
+    {
+        super(800, 600, 1); 
+        setup();
+        if (returning)
+        {
+            pig4.setImage("pigSprites/standingLeft.png");
+            addObject(pig4, 755, 565);
+            addObject(new PassableForest(), 670, 380);
+        }
+        else
+        {
+            addObject(pig4, 45, 545);
+            addObject(new PassableForest(), 670, 380);
+            addObject(new Forest(), 670, 380);
+            addObject(new Mushroom(), 42, 74);
+        }
+    }
+    private void setup()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(800, 600, 1); 
-        
         setBackground(new GreenfootImage("gradient.png"));
         
         Grass grass = new Grass();
@@ -30,25 +55,18 @@ public class Forest4 extends World
         addObject(new Grass(), worldW - grassW*5, worldH - grassH);
         addObject(new Grass(), worldW - grassW*7, worldH - grassH);
         
-        addObject(new PassableForest(), 670, 380);
-        addObject(new Forest(), 670, 380);
-        
-        
         addObject(new Cloud(), 99, 447);
         addObject(new Cloud(), 276, 354);
         addObject(new Cloud(), 49, 267);
         addObject(new Cloud(), 313, 185);
         addObject(new Cloud(), 71, 103);
         
-        addObject(new Mushroom(), 42, 74);
-        
-        addObject(pig4, 45, 545);
     }
     public void act()
     {
        if (pig4.getX() < 10 && pig4.getY() > 400)
        {
-           Greenfoot.setWorld(new Forest3());
+           Greenfoot.setWorld(new Forest3(true));
             // fix pig placement
        }
        if (pig4.getX() > 760)

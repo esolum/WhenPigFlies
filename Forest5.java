@@ -44,7 +44,7 @@ public class Forest5 extends World
     {
        if (pig5.getX() < 10)
        {
-           Greenfoot.setWorld(new Forest4());
+           Greenfoot.setWorld(new Forest4(true));
             // fix pig placement
        }
        if (pig5.getX() > 760)

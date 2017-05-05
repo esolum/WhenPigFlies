@@ -37,17 +37,9 @@ public class Pig extends Moveable
     
     public void act() 
     {
-        // Add your action code here.
-        
-            checkKeys();
-        
-        
         checkFall();
-         //if (getX() > 760 && getY() < 120)
-        //{
-            //Greenfoot.setWorld(new Forest2());
-        //}
-        //checkMoveable();
+        checkKeys();
+        //checkFall();
     }
     private void checkKeys()
     {
@@ -149,8 +141,18 @@ public class Pig extends Moveable
     public void fall()
     {
         setLocation(getX(), getY() + (int)vSpeed);
-        vSpeed = vSpeed + acceleration;
-        if (vSpeed > 0)
+        
+        //while (isTouching(Ground.class)) setLocation(getX(), getY() - (int)vSpeed);
+        
+        //if (isTouching(Ground.class))
+        //{
+            //setLocation(getX(), getY()-(int)vSpeed);
+        //}
+        //else
+        //{
+            vSpeed = vSpeed + acceleration;
+        //}
+        if (vSpeed > 0) //is 0 the best value to check this for?
         {
             if (getImage() == jumpLeft1)
             {
@@ -171,11 +173,19 @@ public class Pig extends Moveable
     {
         if(onGround())
         {
-            if (getImage() == jumpLeft2)
+            //Actor under = getOneObjectAtOffset(0, getImage().getHeight() /2, Ground.class);
+            //setLocation(getX(), under.getY()+under.getImage().getHeight());
+            /* Actor under = getOneObjectAtOffset(0, getImage().getHeight() /2, Ground.class);
+            while(intersects(under))
+            {
+                setLocation(getX(), getY() - 1);
+            }
+            setLocation(getX(), getY() + 1);  */
+            if (getImage() == jumpLeft2 || getImage() == jumpLeft1)
             {
                 setImage(standingLeft);
             }
-            else if (getImage() == jumpRight2)
+            else if (getImage() == jumpRight2 || getImage() == jumpRight1)
             {
                 setImage(standingRight);
             }
@@ -197,6 +207,14 @@ public class Pig extends Moveable
             setImage(jumpRight1);
         } 
         vSpeed = -jumpStrength;
+        /* Actor under = getOneObjectAtOffset(0, getImage().getHeight() /2, Ground.class);
+        if (under != null)
+        {
+            while(intersects(under))
+            {
+                setLocation(getX(), getY() - 1);
+            }
+        } */
         fall();
     }
     public void headbutt()

@@ -14,29 +14,30 @@ public class Forest1 extends World
      * 
      */
     public Forest1()
+    {
+        super(800, 600, 1); 
+        setup();
+        addObject(pig1, 55, 550); 
+    }
+    public Forest1(boolean returning)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
-        //Ground ground = new Ground();
-        //addObject(ground, getWidth() - (ground.getImage().getWidth()/2), getHeight() - (ground.getImage().getHeight()/2));
-        setBackground(new GreenfootImage("gradient.png"));
+        setup();
+        if (returning)
+        {
+            pig1.setImage("pigSprites/standingLeft.png");
+            addObject(pig1, 755, 82);
+        }
+        else
+        {
+            addObject(pig1, 55, 550); 
+        }
+    }
+    private void setup()
+    {
         
-        /* addObject(new Ground(), 774, 577);
-        addObject(new Ground(), 774 - 51, 577);
-        addObject(new Ground(), 774 - 2*51, 577);
-        addObject(new Ground(), 774 - 3*51, 577);
-        addObject(new Ground(), 774 - 4*51, 577);
-        addObject(new Ground(), 774 - 5*51, 577);
-        addObject(new Ground(), 774 - 6*51, 577);
-        addObject(new Ground(), 774 - 7*51, 577);
-        addObject(new Ground(), 774 - 8*51, 577);
-        addObject(new Ground(), 774 - 9*51, 577);
-        addObject(new Ground(), 774 - 10*51, 577);
-        addObject(new Ground(), 774 - 11*51, 577);
-        addObject(new Ground(), 774 - 12*51, 577);
-        addObject(new Ground(), 774 - 13*51, 577);
-        addObject(new Ground(), 774 - 14*51, 577);
-        addObject(new Ground(), 774 - 15*51, 577); */
+        setBackground(new GreenfootImage("gradient.png"));
         
         Grass grass = new Grass();
         int grassH = grass.getImage().getHeight()/2;
@@ -62,11 +63,6 @@ public class Forest1 extends World
         addObject(new Foliage(), 762, 184);
         
         addObject(new Tree(), 724, 510);
-        
-        //addObject(new Moveable(), 476, 539);
-        
-        //addObject(new Pig(), 45, 545);
-        addObject(pig1, 45, 545);
     }
      public void act()
     {

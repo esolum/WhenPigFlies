@@ -9,14 +9,41 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Forest3 extends World
 {
     Pig pig3 = new Pig();
+    Lake lake = new Lake();
     /**
      * Constructor for objects of class Forest3.
      * 
      */
     public Forest3()
-    {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+    {
         super(800, 600, 1); 
+        setup();
+        addObject(pig3, 45, 550);
+        //addObject(new Lake(), 480, 428);
+        addObject(lake, 480, 428);
+        addObject(new DirtPile(), 475, 98);
+        addObject(new DirtPile(), 84, 57);
+    }
+    public Forest3(boolean returning)
+    {
+        super(800, 600, 1); 
+        setup();
+        if (returning)
+        {
+            pig3.setImage("pigSprites/standingLeft.png");
+            addObject(pig3, 755, 540);
+        }
+        else
+        {
+            addObject(pig3, 45, 550);
+            addObject(new Lake(), 480, 428);
+            addObject(new DirtPile(), 475, 98);
+            addObject(new DirtPile(), 84, 57);
+        }
+    }
+    private void setup()
+    {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels. 
         
         setBackground(new GreenfootImage("gradient.png"));
         
@@ -39,8 +66,6 @@ public class Forest3 extends World
         addObject(new Grass(), worldW - grassW*5, worldH - grassH);
         addObject(new Grass(), worldW - grassW*7, worldH - grassH);
         
-        addObject(new Lake(), 480, 428);
-        
         addObject(new Cloud(), 275, 246);
         addObject(new Cloud(), 95, 339);
         addObject(new Cloud(), 203, 450);
@@ -49,21 +74,24 @@ public class Forest3 extends World
         addObject(new Cloud(), 31, 90);
         addObject(new Cloud(), 141, 90);
         
-        addObject(new DirtPile(), 475, 98);
-        addObject(new DirtPile(), 84, 57);
         
-        addObject(pig3, 45, 550);
+        
+        //addObject(pig3, 45, 550);
     }
     public void act()
     {
        if (pig3.getX() < 10 && pig3.getY() > 400)
        {
-           Greenfoot.setWorld(new Forest2());
+           Greenfoot.setWorld(new Forest2(true));
             // fix pig placement
        }
        if (pig3.getX() > 760)
        {
            Greenfoot.setWorld(new Forest4());
        }
+       /* if (pig3.intersects(lake))
+       {
+           Greenfoot.setWorld(new Forest1());
+       } */
     }
 }

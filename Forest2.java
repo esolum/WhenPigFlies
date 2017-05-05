@@ -14,9 +14,29 @@ public class Forest2 extends World
      * 
      */
     public Forest2()
+    {
+        super(800, 600, 1); 
+        setup();
+        addObject(pig2, 45, 80);
+    }
+    public Forest2(boolean returning)
+    {
+        super(800, 600, 1); 
+        setup();
+        if (returning)
+        {
+            pig2.setImage("pigSprites/standingLeft.png");
+            addObject(pig2, 760, 545);
+        }
+        else
+        {
+            addObject(pig2, 45, 80);
+        }
+    }
+    private void setup()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(800, 600, 1); 
+        
         
         setBackground(new GreenfootImage("gradient.png"));
         
@@ -41,13 +61,13 @@ public class Forest2 extends World
         addObject(new Foliage(), 460, 360);
         addObject(new FoliageTiny(), 622, 473);
         
-        addObject(pig2, 45, 80);
+        //addObject(pig2, 45, 80);
     }
     public void act()
     {
        if (pig2.getX() < 18 && pig2.getY() < 185)
        {
-           Greenfoot.setWorld(new Forest1());
+           Greenfoot.setWorld(new Forest1(true));
             // fix pig placement
        }
        if (pig2.getX() > 760)
