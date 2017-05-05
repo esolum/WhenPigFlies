@@ -16,4 +16,8 @@ public class Tree extends ImpassibleScenery
     {
         // Add your action code here.
     }    
+    public Tree()
+    {
+        setImage("brown.png");
+    }
 }

@@ -16,4 +16,8 @@ public class SmallTrunk extends Scenery
     {
         // Add your action code here.
     }    
+    public SmallTrunk()
+    {
+        setImage("tree_tiny.png");
+    }
 }

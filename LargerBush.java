@@ -15,5 +15,9 @@ public class LargerBush extends Ground
     public void act() 
     {
         // Add your action code here.
+    }
+    public LargerBush()
+    {
+        setImage("bush_large.png");
     }    
 }

@@ -16,4 +16,8 @@ public class PassableForest extends Scenery
     {
         // Add your action code here.
     }    
+    public PassableForest()
+    {
+        setImage("gold_forest.png");
+    }
 }

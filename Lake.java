@@ -12,6 +12,10 @@ public class Lake extends ImpassibleScenery
      * Act - do whatever the Lake wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public Lake()
+    {
+        setImage("smalllake.png");
+    }
     public void act() 
     {
         // Add your action code here.

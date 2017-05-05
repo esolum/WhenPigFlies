@@ -15,5 +15,9 @@ public class SMedMushroom extends Ground
     public void act() 
     {
         // Add your action code here.
+    }
+    public SMedMushroom()
+    {
+        setImage("smallmedmushroom.png");
     }    
 }

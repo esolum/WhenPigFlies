@@ -15,5 +15,9 @@ public class Foliage extends Ground
     public void act() 
     {
         // Add your action code here.
+    }
+    public Foliage()
+    {
+        setImage("foliage_large.png");
     }    
 }

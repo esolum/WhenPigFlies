@@ -15,5 +15,9 @@ public class Bush extends Ground
     public void act() 
     {
         // Add your action code here.
+    }
+    public Bush()
+    {
+        setImage("bush_small.png");
     }    
 }

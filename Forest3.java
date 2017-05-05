@@ -20,7 +20,8 @@ public class Forest3 extends World
         setup();
         addObject(pig3, 45, 550);
         //addObject(new Lake(), 480, 428);
-        addObject(lake, 480, 428);
+        //addObject(lake, 480, 428);
+        addObject(lake, 480, 560);
         addObject(new DirtPile(), 475, 98);
         addObject(new DirtPile(), 84, 57);
     }
@@ -36,7 +37,8 @@ public class Forest3 extends World
         else
         {
             addObject(pig3, 45, 550);
-            addObject(new Lake(), 480, 428);
+            //addObject(new Lake(), 480, 428);
+            addObject(lake, 480, 560);
             addObject(new DirtPile(), 475, 98);
             addObject(new DirtPile(), 84, 57);
         }
@@ -89,9 +91,5 @@ public class Forest3 extends World
        {
            Greenfoot.setWorld(new Forest4());
        }
-       /* if (pig3.intersects(lake))
-       {
-           Greenfoot.setWorld(new Forest1());
-       } */
     }
 }

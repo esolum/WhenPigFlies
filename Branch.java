@@ -15,5 +15,9 @@ public class Branch extends Scenery
     public void act() 
     {
         // Add your action code here.
-    }    
+    }
+    public Branch()
+    {
+        setImage("TreeBranch.png");
+    }
 }

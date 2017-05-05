@@ -15,5 +15,9 @@ public class Trunk extends Scenery
     public void act() 
     {
         // Add your action code here.
-    }    
+    }
+    public Trunk()
+    {
+        setImage("tree_small.png");
+    }
 }

@@ -15,5 +15,9 @@ public class LMushroom extends Ground
     public void act() 
     {
         // Add your action code here.
+    }
+    public LMushroom()
+    {
+        setImage("large_gold_mushroom.png");
     }    
 }

@@ -16,4 +16,8 @@ public class Forest extends ImpassibleScenery
     {
         // Add your action code here.
     }    
+    public Forest()
+    {
+        setImage("dense_forest.png");
+    }
 }

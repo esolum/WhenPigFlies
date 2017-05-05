@@ -15,5 +15,9 @@ public class MedBush extends Ground
     public void act() 
     {
         // Add your action code here.
+    }
+    public MedBush()
+    {
+        setImage("bush_medium.png");
     }    
 }

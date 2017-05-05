@@ -15,5 +15,9 @@ public class Cloud extends Ground
     public void act() 
     {
         // Add your action code here.
+    }
+    public Cloud()
+    {
+        setImage("cloud4.png");
     }    
 }

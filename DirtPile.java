@@ -15,6 +15,10 @@ public class DirtPile extends Moveable
      * Act - do whatever the DirtPile wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public DirtPile()
+    {
+        setImage("dirtpile.png");
+    }
     public void act() 
     {
         // Add your action code here.

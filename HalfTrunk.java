@@ -15,5 +15,9 @@ public class HalfTrunk extends Scenery
     public void act() 
     {
         // Add your action code here.
-    }    
+    } 
+    public HalfTrunk()
+    {
+        setImage("tree_medium_half.png");
+    }
 }

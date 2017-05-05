@@ -15,5 +15,9 @@ public class Dirt extends Ground
     public void act() 
     {
         // Add your action code here.
+    }
+    public Dirt()
+    {
+        setImage("magicground.png");
     }    
 }

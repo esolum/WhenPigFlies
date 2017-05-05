@@ -72,6 +72,7 @@ public class Forest4 extends World
        if (pig4.getX() > 760)
        {
            Greenfoot.setWorld(new Forest5());
-        }
+       }
+       
     }
 }
