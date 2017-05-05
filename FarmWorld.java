@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class FarmWorld extends World
 {
-
+    GreenfootSound ambient = new GreenfootSound("farm-ambiance.wav");
     private int frameCount = 0;
     
     /**
@@ -28,6 +28,7 @@ public class FarmWorld extends World
         pig.setImage(new GreenfootImage("pigSprites/pig.png"));
         pig.disableMovement();
         addObject(pig, 100, 500);
+        ambient.playLoop();
         
         
     }
@@ -45,4 +46,9 @@ public class FarmWorld extends World
             //if(mX>=350 && mX<=450 && mY>=80 && mY<=100) methodName();
         }
     }
+    
+    public void stopAmbientSound() {
+        ambient.stop();
+    }
+        
 }

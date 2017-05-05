@@ -15,6 +15,8 @@ public class Pig extends Moveable
     private double jumpStrength = 20;
     private boolean canMove = true;
     private int accessories = 0; // 1 -- wings, 2 -- feathers?, 3 -- …
+    private boolean downJump = false;
+    private boolean upJump = false;
     
     MushBubble bubble = new MushBubble();
     public boolean message = false;
@@ -217,8 +219,10 @@ public class Pig extends Moveable
         //{
             vSpeed = vSpeed + acceleration;
         //}
+        
         if (vSpeed > 0) //is 0 the best value to check this for?
         {
+            downJump = true;
             if (getImage() == jumpLeft1)
             {
                 setImage(jumpLeft2);
