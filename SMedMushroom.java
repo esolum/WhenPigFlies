@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class SMedMushroom extends Ground
+public class SMedMushroom extends Scenery
 {
     /**
      * Act - do whatever the SMedMushroom wants to do. This method is called whenever
