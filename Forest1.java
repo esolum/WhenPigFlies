@@ -63,6 +63,7 @@ public class Forest1 extends World
         addObject(new Foliage(), 762, 184);
         
         addObject(new Tree(), 724, 510);
+        
     }
      public void act()
     {
