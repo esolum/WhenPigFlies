@@ -71,16 +71,15 @@ public class Pig extends Moveable
         checkWearing();
         //checkMoveable();
     }
+    
     private void checkKeys()
     {
         if (getOneObjectAtOffset(-getImage().getWidth()/2, 0, ImpassibleScenery.class) == null)
         {
             if (Greenfoot.isKeyDown("left"))
             {
-                //setImage();
                 if (!Greenfoot.isKeyDown("up"))
                 {
-            
                     if (getImage() == standingLeft)
                     {
                         setImage(walkLeft1);
@@ -89,9 +88,8 @@ public class Pig extends Moveable
                     {
                         setImage(walkLeft2);
                     } 
-                    else
-                    {
-            
+                    
+                }
                 if (getImage() == standingLeft)
                 {
                     if (accessories == 1) {
@@ -119,10 +117,10 @@ public class Pig extends Moveable
                         setImage(standingLeft);
                     }
                 }
-            //if (!Greenfoot.isKeyDown("up"))
-            //{
+                //if (!Greenfoot.isKeyDown("up"))
+                //{
                 //setImage(walkLeft1);
-            //}
+                //}
                 moveLeft();
             }
         }
@@ -146,6 +144,8 @@ public class Pig extends Moveable
                     else
                     {
                         setImage(standingRight);
+                    }
+                }
             
                 if (getImage() == standingRight)
                 {
@@ -175,16 +175,16 @@ public class Pig extends Moveable
                     }
                 }
             
-            //setImage(walkRight1);
+                //setImage(walkRight1);
             
-            /* if (getImage() == standingRight)
-            {
-                setImage(walkRight1);
-            }
-            else if (getImage() == walkRight1)
-            {
-                setImage(walkRight2);
-            } */
+                /* if (getImage() == standingRight)
+                 * {
+                 *     setImage(walkRight1);
+                 *  }
+                 *  else if (getImage() == walkRight1)
+                 *  {
+                 *      setImage(walkRight2);
+                 *  } */
                 moveRight();
             }
 

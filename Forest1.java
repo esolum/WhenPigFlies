@@ -34,6 +34,7 @@ public class Forest1 extends World
             addObject(pig1, 55, 550); 
         }
     }
+    
     private void setup()
     {
         
