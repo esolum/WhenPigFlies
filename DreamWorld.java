@@ -18,6 +18,8 @@ public class DreamWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
+        DreamPig pig = new DreamPig();
+        addObject(pig, 400, 300);
     }
     
     public void act() {
