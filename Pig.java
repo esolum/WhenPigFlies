@@ -77,7 +77,7 @@ public class Pig extends Moveable
                 if (getImage() == standingLeft)
                 {
                     if (accessories == 1) {
-                        setImage(walkWingsLeft1);
+                        //setImage(walkWingsLeft1);
                     }
                     else {
                         setImage(walkLeft1);
@@ -86,7 +86,7 @@ public class Pig extends Moveable
                 else if (getImage() == walkLeft1)
                 {
                     if (accessories == 1) {
-                        setImage(walkWingsLeft2);
+                        //setImage(walkWingsLeft2);
                     }
                     else {
                         setImage(walkLeft2);
@@ -95,7 +95,7 @@ public class Pig extends Moveable
                 else
                 {
                     if (accessories == 1) {
-                        setImage(standingWingsLeft);
+                        //setImage(standingWingsLeft);
                     }
                    
                     else
@@ -136,7 +136,7 @@ public class Pig extends Moveable
                 if (getImage() == standingRight)
                 {
                     if (accessories == 1){
-                        setImage(walkWingsRight1);
+                        //setImage(walkWingsRight1);
                     }
                     else {
                         setImage(walkRight1);
@@ -145,7 +145,7 @@ public class Pig extends Moveable
                 else if (getImage() == walkRight1)
                 {
                     if (accessories == 1){
-                        setImage(walkWingsRight2);
+                       //setImage(walkWingsRight2);
                     }
                     else {
                         setImage(walkRight2);
@@ -154,7 +154,7 @@ public class Pig extends Moveable
                 else
                 {
                     if (accessories == 1){
-                        setImage(standingWingsRight);
+                        //setImage(standingWingsRight);
                     }
                     else {
                         setImage(standingRight);          
@@ -260,6 +260,7 @@ public class Pig extends Moveable
                 setImage(standingRight);
             }
             vSpeed = 0;
+            
         }
         else
         {
@@ -327,7 +328,7 @@ public class Pig extends Moveable
             if (wearable instanceof Wings){
                 accessories = 1;
                 //setImage(standingWingsRight);
-                setImage(standingWingsRight);
+                //setImage(standingWingsRight);
                 getWorld().removeObject(wearable);
     		}
 	}
