@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Forest3 extends World
 {
-    Pig pig3 = new Pig();
+    Pig pig3;
     Lake lake = new Lake();
     /**
      * Constructor for objects of class Forest3.
@@ -18,6 +18,7 @@ public class Forest3 extends World
     {
         super(800, 600, 1); 
         setup();
+        pig3 = new Pig();
         addObject(pig3, 45, 550);
         //addObject(new Lake(), 480, 428);
         //addObject(lake, 480, 428);
@@ -25,10 +26,11 @@ public class Forest3 extends World
         addObject(new DirtPile(), 475, 98);
         addObject(new DirtPile(), 84, 57);
     }
-    public Forest3(boolean returning)
+    public Forest3(boolean returning, int acc)
     {
         super(800, 600, 1); 
         setup();
+        pig3 = new Pig(acc);
         if (returning)
         {
             pig3.setImage("pigSprites/standingLeft.png");
@@ -84,12 +86,12 @@ public class Forest3 extends World
     {
        if (pig3.getX() < 10 && pig3.getY() > 400)
        {
-           Greenfoot.setWorld(new Forest2(true));
+           Greenfoot.setWorld(new Forest2(true, pig3.numacc()));
             // fix pig placement
        }
        if (pig3.getX() > 760)
        {
-           Greenfoot.setWorld(new Forest4());
+           Greenfoot.setWorld(new Forest4(false, pig3.numacc()));
        }
     }
 }

@@ -16,4 +16,8 @@ public class Feathers extends Wearable
     {
         // Add your action code here.
     }    
+    public Feathers()
+    {
+        setImage("feathers.png");
+    }
 }
