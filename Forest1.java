@@ -8,7 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Forest1 extends World
 {
-    Pig pig1;
+
+    Pig pig1 = new Pig();
+    GreenfootSound music = new GreenfootSound("forest-melody.mp3");
     /**
      * Constructor for objects of class Forest1.
      * 
