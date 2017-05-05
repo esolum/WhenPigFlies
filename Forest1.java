@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Forest1 extends World
 {
-    Pig pig1 = new Pig();
+    Pig pig1;
     /**
      * Constructor for objects of class Forest1.
      * 
@@ -17,13 +17,15 @@ public class Forest1 extends World
     {
         super(800, 600, 1); 
         setup();
+        pig1 = new Pig();
         addObject(pig1, 55, 550); 
     }
-    public Forest1(boolean returning)
+    public Forest1(boolean returning, int acc)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
         setup();
+        pig1 = new Pig(acc);
         if (returning)
         {
             pig1.setImage("pigSprites/standingLeft.png");
@@ -70,7 +72,8 @@ public class Forest1 extends World
     {
        if (pig1.getX() > 760 && pig1.getY() < 120)
         {
-            Greenfoot.setWorld(new Forest2());
+            //World world = new Forest2();
+            Greenfoot.setWorld(new Forest2(false, pig1.numacc()));
         }
     } 
 }
