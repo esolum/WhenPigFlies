@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Industrial1 extends World
 {
-
+    Pig pig = new Pig();
     /**
      * Constructor for objects of class Industrial1.
      * 
@@ -19,38 +19,44 @@ public class Industrial1 extends World
         super(800, 600, 1); 
         setBackground("industrialBG.png");
         
-        addObject(new Ground(), 774, 577);
-        addObject(new Ground(), 774 - 51, 577);
-        addObject(new Ground(), 774 - 2*51, 577);
-        addObject(new Ground(), 774 - 3*51, 577);
-        addObject(new Ground(), 774 - 4*51, 577);
-        addObject(new Ground(), 774 - 5*51, 577);
-        addObject(new Ground(), 774 - 6*51, 577);
-        addObject(new Ground(), 774 - 7*51, 577);
-        addObject(new Ground(), 774 - 8*51, 577);
-        addObject(new Ground(), 774 - 9*51, 577);
-        addObject(new Ground(), 774 - 10*51, 577);
-        addObject(new Ground(), 774 - 11*51, 577);
-        addObject(new Ground(), 774 - 12*51, 577);
-        addObject(new Ground(), 774 - 13*51, 577);
-        addObject(new Ground(), 774 - 14*51, 577);
-        addObject(new Ground(), 774 - 15*51, 577);
+        addObject(new IndustrialRoad(), 400, 560);
+        addObject(new RedBldg(), 100, 400);
+        addObject(new MoveableBox(), 200, 200);
+        addObject(new MoveableBox(), 150, 200);
+        addObject(new BlueBldg1(), 700, 400);
+        addObject(new MoveableBox(), 500, 420);
+        addObject(new Dumpster(), 500, 490);
         
-        addObject(new Ground(), 292, 483);
-        addObject(new Ground(), 292 - 51, 483);
+        addObject(pig, 55, 200);
+    }
+    public Industrial1(boolean returning)
+    {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        super(800, 600, 1); 
+        setBackground("industrialBG.png");
         
-        addObject(new Ground(), 292 + 2*51, 483 - 51);
-        addObject(new Ground(), 292 + 3*51, 483 - 51);
+        addObject(new IndustrialRoad(), 400, 560);
+        addObject(new RedBldg(), 100, 400);
+        addObject(new MoveableBox(), 200, 200);
+        addObject(new MoveableBox(), 150, 200);
+        addObject(new BlueBldg1(), 700, 400);
+        addObject(new MoveableBox(), 500, 420);
+        addObject(new Dumpster(), 500, 490);
         
-        addObject(new Ground(), 292 - 51*2, 483 - 80);
-        addObject(new Ground(), 292 - 51*3, 483 - 80);
-        
-        addObject(new Ground(), 292 - 51*4, 483 - 51*3);
-        
-        addObject(new Ground(), 292 - 51*5, 483 - 80*3);
-        
-        //addObject(new Pig(), 200, 500);
-        addObject(new Pig(), 45, 530);
-        addObject(new Wings(), 50, 200);
+        if (!returning)
+        {
+            addObject(pig, 55, 200); 
+        }
+        else 
+        {
+            addObject(pig, 745, 200);
+        }
+
+    }
+    public void act(){
+        if (pig.getX() > 760 && pig.getY() < 400)
+        {
+            Greenfoot.setWorld(new Industrial2());
+        }
     }
 }
