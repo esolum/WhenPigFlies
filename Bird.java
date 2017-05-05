@@ -20,6 +20,8 @@ public class Bird extends Actor
     private double delta;
     private int phase = 1;
     
+    MushBubble bubble = new MushBubble();
+    
     public Bird(int x, int y) {
         flyImg1 = new GreenfootImage("bird/flying1.png");
         flyImg2 = new GreenfootImage("bird/flying2.png");
@@ -79,7 +81,7 @@ public class Bird extends Actor
     public void flyIn() {
         animateFlying();
         
-        if(x > 450) {
+        if(x > 550) {
             x--;  
             setLocation(x, getY());
         }
@@ -91,7 +93,36 @@ public class Bird extends Actor
     }
     
     public void talkToPig() {
-        animateTalking();
+        if (frameCount >= 400 && frameCount < 550)
+        {
+            animateTalking();
+            bubble.setImage("farmSpeech4.png");
+            getWorld().addObject(bubble, 430, 100);
+        }
+        else if (frameCount >= 700 && frameCount < 850)
+        {
+            animateTalking();
+            bubble.setImage("farmSpeech6.png");
+            getWorld().addObject(bubble, 430, 100);
+        }
+        else if (frameCount >= 1000 && frameCount < 1150)
+        {
+            animateTalking();
+            bubble.setImage("farmSpeech8.png");
+            getWorld().addObject(bubble, 430, 100);
+        }
+        else if (frameCount >= 1150 && frameCount < 1130)
+        {
+            animateTalking();
+            bubble.setImage("farmSpeech9.png");
+            getWorld().addObject(bubble, 430, 100);
+        }
+        else if (frameCount >= 1130)
+        {
+            getWorld().removeObject(bubble);
+            x--;
+            setLocation(x, getY());
+        }
         
     }   
 }

@@ -21,12 +21,13 @@ public class Industrial2 extends World
         
         addObject(new IndustrialRoad(), 400, 560);
         
+        addObject(new Ledge(), 680, 520);
+        addObject(new Ledge(), 700, 100);
         addObject(new BlueBldg1(), 100, 400);
         addObject(new BlueBldg2(), 360, 345);
         addObject(new BlueLedge(), 500, 240);
         addObject(new TallBldg(), 750, 280);
-        addObject(new Ledge(), 700, 100);
-        addObject(new Ledge(), 680, 520);
+       
         
         addObject(new Trashcan(), 540, 490);
         addObject(new MoveableBox(), 660, 460);
@@ -43,12 +44,14 @@ public class Industrial2 extends World
         
         addObject(new IndustrialRoad(), 400, 560);
         
+        addObject(new Ledge(), 680, 520);
+        addObject(new Ledge(), 700, 100);
         addObject(new BlueBldg1(), 100, 400);
         addObject(new BlueBldg2(), 360, 345);
         addObject(new BlueLedge(), 500, 240);
         addObject(new TallBldg(), 750, 280);
-        addObject(new Ledge(), 700, 100);
-        addObject(new Ledge(), 680, 520);
+        
+       
         
         addObject(new Trashcan(), 540, 490);
         addObject(new MoveableBox(), 660, 460);

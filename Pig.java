@@ -16,6 +16,8 @@ public class Pig extends Moveable
     private boolean canMove = true;
     private int accessories = 0; // 1 -- wings, 2 -- feathers?, 3 -- …
     
+    private int frameCount = 0;
+    
     MushBubble bubble = new MushBubble();
     public boolean message = false;
     GreenfootImage headbuttStandingLeft;// = new GreenfootImage("pigSprites/headbuttStandingLeft.png");
@@ -136,11 +138,18 @@ public class Pig extends Moveable
             checkKeys();
         }
         
+        if (getWorld() instanceof FarmWorld) 
+        {
+            runNarration();
+        }
+        
         checkFall();
         checkKeys();
         checkLake();
         checkMush();
         checkWearing();
+        
+        frameCount++;
     }
     
     private void checkKeys()
@@ -401,6 +410,54 @@ public class Pig extends Moveable
             {
                 getWorld().removeObject(bubble);
                 message = false;
+            }
+        }
+    }
+    
+    public void runNarration()
+    {
+        if (frameCount < 100)
+        {
+            setImage("pigSprites/sleepingRight.png");
+            bubble.setImage("farmSpeech1.png");
+            getWorld().addObject(bubble, 230, 400);
+        }
+        else if (frameCount >= 100 && frameCount < 250)
+        {
+            setImage("pigSprites/worriedRight.png");
+            bubble.setImage("farmSpeech2.png");
+            getWorld().addObject(bubble, 230, 400);
+        }
+        else if (frameCount >= 250 && frameCount < 400)
+        {
+            bubble.setImage("farmSpeech3.png");
+            getWorld().addObject(bubble, 230, 400);
+        }
+        else if (frameCount >= 550 && frameCount < 700)
+        {
+            bubble.setImage("farmSpeech5.png");
+            getWorld().addObject(bubble, 230, 400);
+        }
+        else if (frameCount >= 850 && frameCount < 1000)
+        {
+            bubble.setImage("farmSpeech7.png");
+            getWorld().addObject(bubble, 230, 400);
+        }
+        else if (frameCount >= 1130 && frameCount < 1400)
+        {
+            bubble.setImage("farmSpeech10.png");
+            getWorld().addObject(bubble, 230, 400);
+        }
+        else if (frameCount >= 1400) 
+        {
+            getWorld().removeObject(bubble);
+            if (getX() < 760)
+            {
+                moveRight();
+            }
+            else 
+            {
+                Greenfoot.setWorld(new Industrial1());
             }
         }
     }

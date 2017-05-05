@@ -12,6 +12,7 @@ public class DreamPig extends Actor
     GreenfootImage flyingUp = new GreenfootImage("pigSprites/flying-up.png");
     GreenfootImage flyingDown = new GreenfootImage("pigSprites/flying-down.png");
     
+    MushBubble bubble = new MushBubble();
     public DreamPig() {
         setImage(flyingUp);
     }
@@ -24,6 +25,7 @@ public class DreamPig extends Actor
         // Add your action code here.
         frameCount++;
         animateFlying();
+        dream();
     }    
     
     public void animateFlying() {
@@ -36,8 +38,46 @@ public class DreamPig extends Actor
             else {
                 this.setImage(flyingUp);
                 this.setLocation(getX(), getY()+5);
-            }
-            
+            }           
         }
+    }
+    public void dream()
+    {
+        if (frameCount > 100 && frameCount < 250)
+        {
+            bubble.setImage("dreamSpeech1.png");
+            getWorld().addObject(bubble, 650, 200);
+        }
+        else if (frameCount >= 250 && frameCount < 400)
+        {
+            bubble.setImage("dreamSpeech2.png");
+            getWorld().addObject(bubble, 650, 200);
+        }
+        else if (frameCount >= 500 && frameCount < 650)
+        {
+            getWorld().setBackground("dream-world-75.png");
+            if (frameCount > 550)
+            {
+                bubble.setImage("dreamSpeech3.png");
+                getWorld().addObject(bubble, 650, 200);
+            }
+        }
+        else if (frameCount >= 650 && frameCount < 700)
+        {
+            getWorld().setBackground("dream-world-85.png");
+        }
+        else if (frameCount >= 700 && frameCount < 750)
+        {
+            getWorld().setBackground("dream-world-95.png");
+            getImage().setTransparency(50);
+        }
+        else if (frameCount >= 750 && frameCount < 800)
+        {
+            getWorld().setBackground("dream-world-100.png");
+            getImage().setTransparency(100);
+            Greenfoot.setWorld(new FarmWorld());
+        }
+        
+        
     }
 }
