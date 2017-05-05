@@ -10,13 +10,11 @@ public class Pig extends Moveable
 {
     private int hSpeed = 7;
     private double vSpeed = 5.0;
-    private double moveSpeed = 7.0;
+    private double moveSpeed = 2.0;
     private double acceleration = 2.0;
     private double jumpStrength = 20;
     private boolean canMove = true;
     private int accessories = 0; // 1 -- wings, 2 -- feathers?, 3 -- …
-    private boolean downJump = false;
-    private boolean upJump = false;
     
     MushBubble bubble = new MushBubble();
     public boolean message = false;
@@ -58,12 +56,14 @@ public class Pig extends Moveable
     
     private void checkKeys()
     {
-        if (getOneObjectAtOffset(-getImage().getWidth()/2, 0, ImpassibleScenery.class) == null)
+        
+       if (getOneObjectAtOffset(-getImage().getWidth()/2, 0, ImpassibleScenery.class) == null)
         {
             if (Greenfoot.isKeyDown("left"))
             {
                 if (!Greenfoot.isKeyDown("up"))
                 {
+                    
                     if (getImage() == standingLeft)
                     {
                         setImage(walkLeft1);
@@ -175,7 +175,7 @@ public class Pig extends Moveable
             }
 
         }
-        if (Greenfoot.isKeyDown("up") && onGround())
+        if (Greenfoot.isKeyDown("up") && onGround() && vSpeed == 0)
         {
             jump();
         }
@@ -219,10 +219,8 @@ public class Pig extends Moveable
         //{
             vSpeed = vSpeed + acceleration;
         //}
-        
         if (vSpeed > 0) //is 0 the best value to check this for?
         {
-            downJump = true;
             if (getImage() == jumpLeft1)
             {
                 setImage(jumpLeft2);
@@ -330,8 +328,8 @@ public class Pig extends Moveable
                 //setImage(standingWingsRight);
                 //setImage(standingWingsRight);
                 getWorld().removeObject(wearable);
-    		}
-	}
+            }
+    }
 }  
     public void checkLake()
     {
