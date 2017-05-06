@@ -104,9 +104,9 @@ public class Pig extends Moveable
         {
             headbuttStandingLeft = new GreenfootImage("pigSprites/headbuttStandingFeathersLeft.png");
                 headbuttStandingRight = new GreenfootImage("pigSprites/headbuttStandingFeathersRight.png");
-                headbuttWalkLeft1 = new GreenfootImage("pigSprites/headbuttWalkWingsLeft1.png");
+                headbuttWalkLeft1 = new GreenfootImage("pigSprites/headbuttWalkFeathersLeft1.png");
                 headbuttWalkLeft2 = new GreenfootImage("pigSprites/headbuttWalkFeathersLeft2.png");
-                headbuttWalkRight1 = new GreenfootImage("pigSprites/headbuttWalkWingsRight1.png");
+                headbuttWalkRight1 = new GreenfootImage("pigSprites/headbuttWalkFeathersRight1.png");
                 headbuttWalkRight2 = new GreenfootImage("pigSprites/headbuttWalkFeathersRight2.png");
                 jumpLeft1 = new GreenfootImage("pigSprites/jumpFeathersLeft1.png");
                 jumpLeft2 = new GreenfootImage("pigSprites/jumpFeathersLeft2.png");
@@ -114,10 +114,10 @@ public class Pig extends Moveable
                 jumpRight2 = new GreenfootImage("pigSprites/jumpFeathersRight2.png");
                 standingLeft = new GreenfootImage("pigSprites/standingFeathersLeft.png");
                 standingRight = new GreenfootImage("pigSprites/standingFeathersRight.png");
-                walkLeft1 = new GreenfootImage("pigSprites/walkWingsLeft1.png");
-                walkLeft2 = new GreenfootImage("pigSprites/walkWingsLeft2.png");
-                walkRight1 = new GreenfootImage("pigSprites/walkWingsRight1.png");
-                walkRight2 = new GreenfootImage("pigSprites/walkWingsRight2.png");
+                walkLeft1 = new GreenfootImage("pigSprites/walkFeathersLeft1.png");
+                walkLeft2 = new GreenfootImage("pigSprites/walkFeathersLeft2.png");
+                walkRight1 = new GreenfootImage("pigSprites/walkFeathersRight1.png");
+                walkRight2 = new GreenfootImage("pigSprites/walkFeathersRight2.png");
         }
         setImage(standingRight);
         accessories = acc;

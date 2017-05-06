@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Fri May 05 08:44:35 PDT 2017
+#Sat May 06 11:24:01 PDT 2017
 target49.type=ClassTarget
 target24.type=ClassTarget
 target16.name=Tree
@@ -772,7 +772,7 @@ dependency9.type=UsesDependency
 dependency72.to=Lake
 editor.fx.0.y=27
 class.Platform.superclass=greenfoot.Actor
-editor.fx.0.x=169
+editor.fx.0.x=49
 dependency8.to=Ground
 target44.typeParameters=
 target26.showInterface=false
