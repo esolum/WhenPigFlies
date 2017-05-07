@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class FarmWorld extends World
 {
-    GreenfootSound ambient = new GreenfootSound("farm-ambiance.wav");
+    GreenfootSound ambient = new GreenfootSound("farm-sounds.wav");
     private int frameCount = 0;
     
     Bird bird = new Bird(700, 200);
@@ -53,10 +53,18 @@ public class FarmWorld extends World
         {
             removeObject(bird);
         }
+        
+        if(!ambient.isPlaying()) {
+            
+            ambient.stop();
+        }
     }
     
-    public void stopAmbientSound() {
-        ambient.stop();
+    public void stopped() {
+        if(ambient.isPlaying()) {
+            
+            ambient.stop();
+        }
     }
         
 }

@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Industrial1 extends World
 {
     Pig pig = new Pig();
+    GreenfootSound sounds = new GreenfootSound("city-sounds.wav");
     /**
      * Constructor for objects of class Industrial1.
      * 
@@ -57,6 +58,16 @@ public class Industrial1 extends World
         if (pig.getX() > 760 && pig.getY() < 400)
         {
             Greenfoot.setWorld(new Industrial2());
+        }
+        
+        if(!sounds.isPlaying()) {
+           sounds.playLoop(); 
+        }
+    }
+    
+    public void stopped() {
+        if(sounds.isPlaying()) {
+           sounds.pause();
         }
     }
 }

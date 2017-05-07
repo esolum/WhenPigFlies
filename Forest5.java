@@ -94,6 +94,12 @@ public class Forest5 extends World
        if (pig5.getX() > 760)
        {
            //Greenfoot.setWorld();
+           goToCloudWorld();
         }
+    }
+    
+    public void goToCloudWorld() {
+        CloudWorld1 world = new CloudWorld1();
+        Greenfoot.setWorld(world);
     }
 }

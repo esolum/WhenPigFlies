@@ -11,6 +11,7 @@ public class Forest1 extends World
 
     Pig pig1 = new Pig();
     GreenfootSound music = new GreenfootSound("forest-melody.mp3");
+    
     /**
      * Constructor for objects of class Forest1.
      * 
@@ -37,6 +38,8 @@ public class Forest1 extends World
         {
             addObject(pig1, 55, 550); 
         }
+        
+        
     }
     
     private void setup()
@@ -80,6 +83,9 @@ public class Forest1 extends World
         {
             //World world = new Forest2();
             Greenfoot.setWorld(new Forest2(false, pig1.numacc()));
+        }
+        if(!music.isPlaying()) {
+            music.playLoop();
         }
     } 
 }

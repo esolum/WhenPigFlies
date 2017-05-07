@@ -6,9 +6,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Pig extends Moveable
+public class Pig extends Actor
 {
-    private int hSpeed = 7;
+    private int hSpeed = 5;
     private double vSpeed = 5.0;
     private double moveSpeed = 2.0;
     private double acceleration = 2.0;
@@ -144,7 +144,6 @@ public class Pig extends Moveable
         }
         
         checkFall();
-        checkKeys();
         checkLake();
         checkMush();
         checkWearing();

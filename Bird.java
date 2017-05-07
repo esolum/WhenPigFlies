@@ -13,6 +13,7 @@ public class Bird extends Actor
     private boolean talking = false;
     private GreenfootImage flyImg1;
     private GreenfootImage flyImg2;
+    private GreenfootImage flyImgTalking;
     private GreenfootImage standingSilent;
     private GreenfootImage standingTalking;
     private int x; // Velocity in x direction
@@ -27,6 +28,7 @@ public class Bird extends Actor
         flyImg2 = new GreenfootImage("bird/flying2.png");
         standingSilent = new GreenfootImage("bird/standingSilent.png");
         standingTalking = new GreenfootImage("bird/standingTalking.png");
+        flyImgTalking = new GreenfootImage("bird/flyingTalking.png");
         this.setImage(flyImg1);
         
         
@@ -56,11 +58,11 @@ public class Bird extends Actor
     public void animateFlying() {
         if(frameCount % 15 == 0) {
             GreenfootImage curImg = getImage();
-            if(curImg == flyImg1) {
+            if(curImg == flyImg1 ) {
                 this.setImage(flyImg2);
             }
             else {
-                this.setImage(flyImg1);
+                setImage(flyImg1);
             }
             
         }
@@ -93,34 +95,37 @@ public class Bird extends Actor
     }
     
     public void talkToPig() {
+        talking = true;
         if (frameCount >= 400 && frameCount < 550)
         {
             animateTalking();
             bubble.setImage("farmSpeech4.png");
-            getWorld().addObject(bubble, 430, 100);
+            getWorld().addObject(bubble, 420, 100);
         }
         else if (frameCount >= 700 && frameCount < 850)
         {
             animateTalking();
             bubble.setImage("farmSpeech6.png");
-            getWorld().addObject(bubble, 430, 100);
+            getWorld().addObject(bubble, 420, 100);
         }
         else if (frameCount >= 1000 && frameCount < 1150)
         {
             animateTalking();
             bubble.setImage("farmSpeech8.png");
-            getWorld().addObject(bubble, 430, 100);
+            getWorld().addObject(bubble, 420, 100);
         }
         else if (frameCount >= 1150 && frameCount < 1130)
         {
             animateTalking();
             bubble.setImage("farmSpeech9.png");
-            getWorld().addObject(bubble, 430, 100);
+            getWorld().addObject(bubble, 420, 100);
         }
         else if (frameCount >= 1130)
         {
             getWorld().removeObject(bubble);
+            talking = false;
             x--;
+            animateFlying();
             setLocation(x, getY());
         }
         

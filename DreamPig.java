@@ -75,6 +75,9 @@ public class DreamPig extends Actor
         {
             getWorld().setBackground("dream-world-100.png");
             getImage().setTransparency(100);
+            
+            DreamWorld world = (DreamWorld) getWorld();
+            world.music.pause();
             Greenfoot.setWorld(new FarmWorld());
         }
         
