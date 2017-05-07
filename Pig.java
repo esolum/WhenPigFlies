@@ -144,6 +144,7 @@ public class Pig extends Actor
         }
         
         checkFall();
+        checkElevator();
         checkLake();
         checkMush();
         checkWearing();
@@ -363,6 +364,8 @@ public class Pig extends Actor
                 walkLeft2 = new GreenfootImage("pigSprites/walkWingsLeft2.png");
                 walkRight1 = new GreenfootImage("pigSprites/walkWingsRight1.png");
                 walkRight2 = new GreenfootImage("pigSprites/walkWingsRight2.png");
+                
+                setImage(standingRight);
                 getWorld().removeObject(wearable);
             }
             else if (wearable instanceof Feathers)
@@ -411,6 +414,24 @@ public class Pig extends Actor
                 message = false;
             }
         }
+    }
+    public void checkElevator()
+    {
+        Actor touching = getOneIntersectingObject(Elevator.class);
+        int y = getY();
+        if (touching != null)
+        {
+            Elevator elevate = (Elevator)touching;
+            if (elevate.getY() <= 475 && elevate.getRise() == true) 
+            {
+                y = getY() - 1;
+            }
+            else if (elevate.getY() >= 105 && elevate.getRise() == false)
+            {
+                y = getY() + 1;
+            }
+        }
+        setLocation(getX(), y);
     }
     
     public void runNarration()

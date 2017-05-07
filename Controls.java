@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class BlueBldg1 here.
+ * Write a description of class Controls here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class BlueBldg1 extends Bldg
+public class Controls extends Actor
 {
     /**
-     * Act - do whatever the BlueBldg1 wants to do. This method is called whenever
+     * Act - do whatever the Controls wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 

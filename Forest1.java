@@ -77,7 +77,7 @@ public class Forest1 extends World
     {
         if (pig1.getX() < 20)
         {
-            Greenfoot.setWorld(new Industrial2(true));
+            Greenfoot.setWorld(new Industrial2(true, pig1.numacc(), pig1.getY()));
         }
         if (pig1.getX() > 760 && pig1.getY() < 120)
         {

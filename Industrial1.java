@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Industrial1 extends World
 {
     Pig pig = new Pig();
+    Controls controls;
     GreenfootSound sounds = new GreenfootSound("city-sounds.wav");
     /**
      * Constructor for objects of class Industrial1.
@@ -18,50 +19,102 @@ public class Industrial1 extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
+        pig = new Pig();
         setBackground("industrialBG.png");
         
         addObject(new IndustrialRoad(), 400, 560);
-        addObject(new RedBldg(), 100, 400);
-        addObject(new MoveableBox(), 200, 200);
-        addObject(new MoveableBox(), 150, 200);
-        addObject(new BlueBldg1(), 700, 400);
-        addObject(new MoveableBox(), 500, 420);
-        addObject(new Dumpster(), 500, 490);
         
-        addObject(pig, 55, 200);
+        BlueLedge benchLedge = new BlueLedge();
+        benchLedge.getImage().scale(200, 15);
+        BlueLedge stopLedge = new BlueLedge();
+        stopLedge.getImage().scale(420, 15);
+        BlueLedge brickLedge = new BlueLedge();
+        brickLedge.getImage().scale(270, 15);
+        BlueLedge trashLedge = new BlueLedge();
+        trashLedge.getImage().scale(50, 15);
+        BlueLedge stripeLedge = new BlueLedge();
+        stripeLedge.getImage().scale(260, 15);
+        BlueLedge roofLedge = new BlueLedge();
+        roofLedge.getImage().scale(310, 15);
+        
+        Lake lake = new Lake();
+        lake.getImage().scale(250, 75);
+        
+        addObject(benchLedge, 200, 480);
+        addObject(stopLedge, 250, 325);
+        addObject(new BusStop(), 250, 425);
+        addObject(lake, 700, 530);
+        addObject(brickLedge, 655, 460);
+        addObject(stripeLedge, 670, 290);
+        addObject(roofLedge, 650, 217);
+        addObject(new Bakery(), 720, 300);
+        addObject(trashLedge, 400, 435);
+        addObject(new TrashCan(), 400, 475);
+        
+        addObject(pig, 55, 400);
+        
+        controls = new Controls();
+        addObject(controls, 400, 300);
     }
-    public Industrial1(boolean returning)
+    public Industrial1(boolean returning, int acc, int pigY)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
+        pig = new Pig(acc);
         setBackground("industrialBG.png");
         
         addObject(new IndustrialRoad(), 400, 560);
-        addObject(new RedBldg(), 100, 400);
-        addObject(new MoveableBox(), 200, 200);
-        addObject(new MoveableBox(), 150, 200);
-        addObject(new BlueBldg1(), 700, 400);
-        addObject(new MoveableBox(), 500, 420);
-        addObject(new Dumpster(), 500, 490);
+        
+        BlueLedge benchLedge = new BlueLedge();
+        benchLedge.getImage().scale(200, 15);
+        BlueLedge stopLedge = new BlueLedge();
+        stopLedge.getImage().scale(420, 15);
+        BlueLedge brickLedge = new BlueLedge();
+        brickLedge.getImage().scale(270, 15);
+        BlueLedge trashLedge = new BlueLedge();
+        trashLedge.getImage().scale(50, 15);
+        BlueLedge stripeLedge = new BlueLedge();
+        stripeLedge.getImage().scale(260, 15);
+        BlueLedge roofLedge = new BlueLedge();
+        roofLedge.getImage().scale(310, 15);
+        
+        Lake lake = new Lake();
+        lake.getImage().scale(250, 75);
+        
+        addObject(benchLedge, 200, 480);
+        addObject(stopLedge, 250, 325);
+        addObject(new BusStop(), 250, 425);
+        addObject(lake, 700, 530);
+        addObject(brickLedge, 655, 460);
+        addObject(stripeLedge, 670, 290);
+        addObject(roofLedge, 650, 217);
+        addObject(new Bakery(), 720, 300);
+        addObject(trashLedge, 400, 435);
+        addObject(new TrashCan(), 400, 475);
         
         if (!returning)
         {
-            addObject(pig, 55, 200); 
+            addObject(pig, 55, 100); 
         }
         else 
         {
-            addObject(pig, 745, 200);
+            addObject(pig, 745, pigY);
         }
 
     }
     public void act(){
-        if (pig.getX() > 760 && pig.getY() < 400)
+        if (pig.getX() > 760 && pig.numacc() <= 1)
         {
-            Greenfoot.setWorld(new Industrial2());
+            Greenfoot.setWorld(new Industrial2(pig.getY()));
         }
         
         if(!sounds.isPlaying()) {
            sounds.playLoop(); 
+        }
+        
+        if (Greenfoot.isKeyDown("escape"))
+        {
+            removeObject(controls);
         }
     }
     

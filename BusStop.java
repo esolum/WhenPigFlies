@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class RedBldg here.
+ * Write a description of class BusStop here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class RedBldg extends Bldg
+public class BusStop extends Platform
 {
     /**
-     * Act - do whatever the RedBldg wants to do. This method is called whenever
+     * Act - do whatever the BusStop wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
