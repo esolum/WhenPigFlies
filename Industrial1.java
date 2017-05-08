@@ -82,6 +82,8 @@ public class Industrial1 extends World
         Lake lake = new Lake();
         lake.getImage().scale(250, 75);
         
+        sounds.playLoop();
+        
         addObject(benchLedge, 200, 480);
         addObject(stopLedge, 250, 325);
         addObject(new BusStop(), 250, 425);
@@ -107,14 +109,11 @@ public class Industrial1 extends World
         if (gPig.getX() > 760 && gPig.numacc() <= 1)
         {
             Greenfoot.setWorld(new Industrial2(gPig.getY()));
-            if(sounds.isPlaying()) {
-                sounds.stop(); 
-            }
+            sounds.stop(); 
+            
         }
         
-        if(!sounds.isPlaying()) {
-           sounds.playLoop(); 
-        }
+        
         
         if (Greenfoot.isKeyDown("escape"))
         {

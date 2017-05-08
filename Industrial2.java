@@ -57,7 +57,7 @@ public class Industrial2 extends World
         pig = new Pig(acc);
         gPig = new GravityPig(acc);
         setBackground("industrialBG.png");
-        
+        sounds.playLoop();
         addObject(new IndustrialRoad(), 400, 560);
         
         BlueLedge roofLedge = new BlueLedge();
@@ -91,20 +91,18 @@ public class Industrial2 extends World
         }
     }
     public void act(){
-        if(!sounds.isPlaying()) {
-           sounds.playLoop(); 
-        }
+        
         
         //if (pig.getX() < 40 && pig.getY() < 300)
         if (gPig.getX() < 40 && gPig.getY() < 400)
         {
             Greenfoot.setWorld(new Industrial1(true, gPig.numacc(), gPig.getY()));
-            sounds.pause();
+            sounds.stop();
         }
         else if (gPig.getX() > 760 && gPig.numacc() >= 1)
         {
             Greenfoot.setWorld(new Forest1(false, gPig.numacc()));
-            sounds.pause();
+            sounds.stop();
         }
     }
 }
