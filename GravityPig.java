@@ -156,7 +156,7 @@ public class GravityPig extends Actor
         int newY = (int)(getY() + vY*delta);
         
         setLocation(getX(), newY);
-        
+        checkMush();
         checkForPlatform();
         checkElevator();
         checkWearing();
@@ -237,6 +237,24 @@ public class GravityPig extends Actor
             }
         }
         setLocation(getX(), y);
+    }
+    
+    public void checkMush()
+    {
+        Actor mush = getOneIntersectingObject(Mushroom.class);
+        if ((mush != null) && (message == false))
+        {
+            getWorld().addObject(bubble, 125, 35);
+            message = true;
+        }
+        else if (mush == null)
+        {
+            if (message == true)
+            {
+                getWorld().removeObject(bubble);
+                message = false;
+            }
+        }
     }
     
     public void checkForPlatform() {
@@ -406,23 +424,7 @@ public class GravityPig extends Actor
             Greenfoot.setWorld(new Forest1());
         }
     }
-    public void checkMush()
-    {
-        Actor mush = getOneIntersectingObject(Mushroom.class);
-        if ((mush != null) && (message == false))
-        {
-            getWorld().addObject(bubble, 125, 35);
-            message = true;
-        }
-        else if (mush == null)
-        {
-            if (message == true)
-            {
-                getWorld().removeObject(bubble);
-                message = false;
-            }
-        }
-    }
+    
     
     public void runNarration()
     {
