@@ -201,7 +201,7 @@ public class GravityPig extends Actor
             setImage(jumpRight1);    
         }
         else {
-            System.out.println("Frame count: " + (frameCount%2));
+            //System.out.println("Frame count: " + (frameCount%2));
             if(getImage() == walkRight1) {
                 setImage(walkRight2);
             }
@@ -223,7 +223,7 @@ public class GravityPig extends Actor
             setImage(jumpLeft1);    
         }
         else {
-            System.out.println("Frame count: " + (frameCount%2));
+            //System.out.println("Frame count: " + (frameCount%2));
             if(getImage() == walkLeft2) {
                 setImage(walkLeft1);
             }
@@ -524,9 +524,16 @@ public class GravityPig extends Actor
             
         }
     } 
+    public boolean isJumping() {
+        return jumping;
+    }
     
     public void showLevelCompleteScreen() {
         
+    }
+    
+    public double getVY() {
+        return vY;
     }
 }
 

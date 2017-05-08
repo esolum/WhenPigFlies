@@ -24,7 +24,8 @@ public class CloudWorld1 extends CloudWorld
         setBackground("cloudWorld1.png");
         //setupLevel();
         music.playLoop();
-        
+        gPig = new GravityPig(3);
+        addObject(gPig, 50, 400);
         prepare();
     }
     public CloudWorld1(GravityPig pig)
@@ -35,6 +36,7 @@ public class CloudWorld1 extends CloudWorld
         //setupLevel();
         music.playLoop();
         gPig = pig;
+        addObject(gPig, gPig.getX(), 20);
         
         prepare();
     }
@@ -49,14 +51,15 @@ public class CloudWorld1 extends CloudWorld
 
 
     private void checkPigBoundaries() {
-        if(gPig.getY() < 20){
+        if(gPig.getY() < 20 && gPig.isJumping()){
+            System.out.println("Goin up bitch");
             music.stop();
             CloudWorld2 world = new CloudWorld2(gPig);
             Greenfoot.setWorld(world);
         }
-        
-        if(gPig.getY() > 580) {
+        else if(gPig.getY() > 580) {
             //Ye died, son
+            System.out.println("Ye dyin son " + gPig.getY());
             music.stop();
             hurtScreen hurt = new hurtScreen(new CloudWorld1());
             Greenfoot.setWorld(hurt);
@@ -87,16 +90,21 @@ public class CloudWorld1 extends CloudWorld
         addObject(cloudledge5,734,102);
         cloudLedge cloudledge6 = new cloudLedge();
         addObject(cloudledge6,217,212);
+        cloudLedge cloudledge7 = new cloudLedge();
+        addObject(cloudledge7,87,99);
+        
 
         Cloud cloud = new Cloud();
         addObject(cloud,70,461);
-        DisappearingCloud1 disappearingcloud = new DisappearingCloud1();
+        DisappearingCloud1 disappearingcloud = new DisappearingCloud1(217,206, cloudledge6);
         addObject(disappearingcloud,217,206);
 
-        DisappearingCloud1 disappearingcloud2 = new DisappearingCloud1();
+        DisappearingCloud1 disappearingcloud2 = new DisappearingCloud1(235,338, cloudledge2);
         addObject(disappearingcloud2,235,338);
-        DisappearingCloud1 disappearingcloud3 = new DisappearingCloud1();
+        DisappearingCloud1 disappearingcloud3 = new DisappearingCloud1(553,261, cloudledge3);
         addObject(disappearingcloud3,553,261);
+        DisappearingCloud1 disappearingcloud4 = new DisappearingCloud1(86,92, cloudledge7);
+        addObject(disappearingcloud4,86,92);
 
         Cloud cloud2 = new Cloud();
         addObject(cloud2,728,96);
@@ -113,12 +121,9 @@ public class CloudWorld1 extends CloudWorld
 
         //disappearingcloud3.setLocation(323,276);
         //disappearingcloud3.setLocation(553,261);
-        gPig = new GravityPig(3);
-        addObject(gPig, 50, 400);
+        
 
-        MagicDust magicdust = new MagicDust(true);
-        addObject(magicdust,738,47);
-        magicdust.setLocation(731,54);
+        
         
     }
 }
