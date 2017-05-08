@@ -66,6 +66,12 @@ public class Forest4 extends World
         addObject(new Grass(), worldW - grassW*5, worldH - grassH);
         addObject(new Grass(), worldW - grassW*7, worldH - grassH);
         
+        addObject(new cloudLedge(), 99, 447);
+        addObject(new cloudLedge(), 276, 354);
+        addObject(new cloudLedge(), 49, 267);
+        addObject(new cloudLedge(), 313, 185);
+        addObject(new cloudLedge(), 71, 103);
+        
         addObject(new Cloud(), 99, 447);
         addObject(new Cloud(), 276, 354);
         addObject(new Cloud(), 49, 267);

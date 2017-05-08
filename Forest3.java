@@ -26,7 +26,7 @@ public class Forest3 extends World
         //addObject(new Lake(), 480, 428);
         //addObject(lake, 480, 428);
         addObject(lake, 595, 560);
-        addObject(new DirtPile(), 475, 98);
+        addObject(new DirtPile(), 475, 110);
         addObject(new DirtPile(), 84, 57);
     }
     public Forest3(boolean returning, int acc)
@@ -45,7 +45,7 @@ public class Forest3 extends World
             addObject(gPig, 45, 550);
             //addObject(new Lake(), 480, 428);
             addObject(lake, 595, 560);
-            addObject(new DirtPile(), 475, 98);
+            addObject(new DirtPile(), 475, 110);
             addObject(new DirtPile(), 84, 57);
         }
     }
@@ -75,13 +75,40 @@ public class Forest3 extends World
         addObject(new Grass(), worldW - grassW*5, worldH - grassH);
         addObject(new Grass(), worldW - grassW*7, worldH - grassH);
         
+        /* addObject(new cloudLedge(), 315, 266);
+        addObject(new cloudLedge(), 95, 339);
+        addObject(new cloudLedge(), 203, 450);
+        addObject(new cloudLedge(), 439, 132);
+        addObject(new cloudLedge(), 359, 132);
+        addObject(new cloudLedge(), 31, 90);
+        addObject(new cloudLedge(), 141, 90);
+        
         addObject(new Cloud(), 315, 266);
         addObject(new Cloud(), 95, 339);
         addObject(new Cloud(), 203, 450);
         addObject(new Cloud(), 439, 132);
         addObject(new Cloud(), 359, 132);
         addObject(new Cloud(), 31, 90);
-        addObject(new Cloud(), 141, 90);
+        addObject(new Cloud(), 141, 90); */
+         addObject(new cloudLedge(), 203, 450);
+        addObject(new cloudLedge(), 95, 339);
+        addObject(new cloudLedge(), 330, 266);
+        addObject(new cloudLedge(), 218, 266);
+        addObject(new cloudLedge(), 141, 90);
+        addObject(new cloudLedge(), 61, 85);
+        addObject(new cloudLedge(), 142, 85);
+        addObject(new cloudLedge(), 445, 140);
+        addObject(new cloudLedge(), 359, 140);
+        
+        addObject(new Cloud(), 330, 266);
+        addObject(new Cloud(), 218, 266);
+        addObject(new Cloud(), 95, 339); 
+         addObject(new Cloud(), 203, 450);
+         addObject(new Cloud(), 445, 140); 
+        addObject(new Cloud(), 359, 140); 
+        addObject(new Cloud(), 61, 90);
+        addObject(new Cloud(), 141, 85); 
+        
         
         //addObject(pig3, 45, 550);
     }
