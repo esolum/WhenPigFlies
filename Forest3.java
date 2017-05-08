@@ -19,7 +19,7 @@ public class Forest3 extends World
     {
         super(800, 600, 1); 
         setup();
-        pig3 = new Pig();
+        //pig3 = new Pig();
         gPig = new GravityPig(1);
         addObject(pig3, 45, 550);
         //addObject(new Lake(), 480, 428);
@@ -32,7 +32,7 @@ public class Forest3 extends World
     {
         super(800, 600, 1); 
         setup();
-        pig3 = new Pig(acc);
+        //pig3 = new Pig(acc);
         gPig = new GravityPig(acc);
         if (returning)
         {

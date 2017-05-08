@@ -19,8 +19,8 @@ public class Forest5 extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1);
         
-        pig5 = new Pig();
-        gPig = new GravityPig(1);
+        //pig5 = new Pig();
+        gPig = new GravityPig(2);
         setBackground(new GreenfootImage("magic.jpeg"));
         
         setup();
@@ -31,7 +31,7 @@ public class Forest5 extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1);
         
-        pig5 = new Pig(acc);
+        //pig5 = new Pig(acc);
         gPig = new GravityPig(acc);
         setBackground(new GreenfootImage("magic.jpeg"));
         

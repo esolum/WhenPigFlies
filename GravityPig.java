@@ -133,6 +133,27 @@ public class GravityPig extends Actor
             {
                 getWorld().removeObjects(getWorld().getObjects(Forest.class));
                 getWorld().removeObject(food);
+                
+                if (food instanceof Mushroom)
+                {
+                    headbuttStandingLeft = new GreenfootImage("pigSprites/smallheadbuttStandingWingsLeft.png");
+                    headbuttStandingRight = new GreenfootImage("pigSprites/smallheadbuttStandingWingsRight.png");
+                    headbuttWalkLeft1 = new GreenfootImage("pigSprites/smallheadbuttWalkWingsLeft1.png");
+                    headbuttWalkLeft2 = new GreenfootImage("pigSprites/smallheadbuttWalkWingsLeft2.png");
+                    headbuttWalkRight1 = new GreenfootImage("pigSprites/smallheadbuttWalkWingsRight1.png");
+                    headbuttWalkRight2 = new GreenfootImage("pigSprites/smallheadbuttWalkWingsRight2.png");
+                    jumpLeft1 = new GreenfootImage("pigSprites/smalljumpWingsLeft1.png");
+                    jumpLeft2 = new GreenfootImage("pigSprites/smalljumpWingsLeft2.png");
+                    jumpRight1 = new GreenfootImage("pigSprites/smalljumpWingsRight1.png");
+                    jumpRight2 = new GreenfootImage("pigSprites/smalljumpWingsRight2.png");
+                    standingLeft = new GreenfootImage("pigSprites/smallstandingWingsLeft.png");
+                    standingRight = new GreenfootImage("pigSprites/smallstandingWingsRight.png");
+                    walkLeft1 = new GreenfootImage("pigSprites/smallwalkWingsLeft1.png");
+                    walkLeft2 = new GreenfootImage("pigSprites/smallwalkWingsLeft2.png");
+                    walkRight1 = new GreenfootImage("pigSprites/smallwalkWingsRight1.png");
+                    walkRight2 = new GreenfootImage("pigSprites/smallwalkWingsRight2.png");
+                    accLevel++;
+                }
                 // NEW IMAGE
             }
         }
@@ -341,7 +362,7 @@ public class GravityPig extends Actor
                 walkRight1 = new GreenfootImage("pigSprites/walkWingsRight1.png");
                 walkRight2 = new GreenfootImage("pigSprites/walkWingsRight2.png");
         }
-        else if (accLevel == 2)
+        else if (accLevel == 3)
         {
             headbuttStandingLeft = new GreenfootImage("pigSprites/headbuttStandingFeathersLeft.png");
                 headbuttStandingRight = new GreenfootImage("pigSprites/headbuttStandingFeathersRight.png");
@@ -359,6 +380,25 @@ public class GravityPig extends Actor
                 walkLeft2 = new GreenfootImage("pigSprites/walkFeathersLeft2.png");
                 walkRight1 = new GreenfootImage("pigSprites/walkFeathersRight1.png");
                 walkRight2 = new GreenfootImage("pigSprites/walkFeathersRight2.png");
+        }
+        else if (accLevel == 2)
+        {
+                    headbuttStandingLeft = new GreenfootImage("pigSprites/smallheadbuttStandingWingsLeft.png");
+                    headbuttStandingRight = new GreenfootImage("pigSprites/smallheadbuttStandingWingsRight.png");
+                    headbuttWalkLeft1 = new GreenfootImage("pigSprites/smallheadbuttWalkWingsLeft1.png");
+                    headbuttWalkLeft2 = new GreenfootImage("pigSprites/smallheadbuttWalkWingsLeft2.png");
+                    headbuttWalkRight1 = new GreenfootImage("pigSprites/smallheadbuttWalkWingsRight1.png");
+                    headbuttWalkRight2 = new GreenfootImage("pigSprites/smallheadbuttWalkWingsRight2.png");
+                    jumpLeft1 = new GreenfootImage("pigSprites/smalljumpWingsLeft1.png");
+                    jumpLeft2 = new GreenfootImage("pigSprites/smalljumpWingsLeft2.png");
+                    jumpRight1 = new GreenfootImage("pigSprites/smalljumpWingsRight1.png");
+                    jumpRight2 = new GreenfootImage("pigSprites/smalljumpWingsRight2.png");
+                    standingLeft = new GreenfootImage("pigSprites/smallstandingWingsLeft.png");
+                    standingRight = new GreenfootImage("pigSprites/smallstandingWingsRight.png");
+                    walkLeft1 = new GreenfootImage("pigSprites/smallwalkWingsLeft1.png");
+                    walkLeft2 = new GreenfootImage("pigSprites/smallwalkWingsLeft2.png");
+                    walkRight1 = new GreenfootImage("pigSprites/smallwalkWingsRight1.png");
+                    walkRight2 = new GreenfootImage("pigSprites/smallwalkWingsRight2.png");
         }
         setImage(standingRight);
     }

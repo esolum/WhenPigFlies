@@ -20,7 +20,7 @@ public class Forest1 extends World
     {
         super(800, 600, 1); 
         setup();
-        pig1 = new Pig();
+        //pig1 = new Pig();
         gPig = new GravityPig(1);
         //addObject(pig1, 55, 550); 
         addObject(gPig, 55, 525); 
@@ -30,7 +30,7 @@ public class Forest1 extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
         setup();
-        pig1 = new Pig(acc);
+        //pig1 = new Pig(acc);
         gPig = new GravityPig(acc);
         if (returning)
         {

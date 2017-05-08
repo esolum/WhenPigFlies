@@ -18,7 +18,7 @@ public class Forest4 extends World
     {
         super(800, 600, 1); 
         setup();
-        pig4 = new Pig();
+        //pig4 = new Pig();
         gPig = new GravityPig(1);
         //addObject(pig4, 45, 545);
         addObject(gPig, 45, 545);
@@ -30,7 +30,7 @@ public class Forest4 extends World
     {
         super(800, 600, 1); 
         setup();
-        pig4 = new Pig(acc);
+        //pig4 = new Pig(acc);
         gPig = new GravityPig(acc);
         
         if (returning)
@@ -77,10 +77,11 @@ public class Forest4 extends World
        if (gPig.getX() < 10 && gPig.getY() > 400)
        {
            Greenfoot.setWorld(new Forest3(true, gPig.numacc()));
-            // fix pig placement
+           
        }
        if (gPig.getX() > 760)
        {
+           //Greenfoot.setWorld(new Forest5(gPig.numacc()));
            Greenfoot.setWorld(new Forest5(gPig.numacc()));
        }
        
