@@ -22,8 +22,7 @@ public class CloudWorld1 extends CloudWorld
         super();
 
         //setupLevel();
-        gPig = new GravityPig(2);
-        pig = new Pig(2);
+        
         prepare();
     }
 
@@ -45,7 +44,7 @@ public class CloudWorld1 extends CloudWorld
     }
 
     private void checkPigBoundaries() {
-        if(pig.getX() > 800){
+        if(gPig.getX() > 800){
             CloudWorld2 world = new CloudWorld2();
             Greenfoot.setWorld(world);
         }
@@ -66,12 +65,13 @@ public class CloudWorld1 extends CloudWorld
         Cloud cloud = new Cloud();
         addObject(cloud,70,461);
         DisappearingCloud disappearingcloud = new DisappearingCloud();
-        addObject(disappearingcloud,231,382);
-        disappearingcloud.setLocation(285,319);
+        addObject(disappearingcloud,194,102);
+        
         DisappearingCloud disappearingcloud2 = new DisappearingCloud();
-        addObject(disappearingcloud2,482,188);
+        addObject(disappearingcloud2,350,315);
         DisappearingCloud disappearingcloud3 = new DisappearingCloud();
-        addObject(disappearingcloud3,353,188);
+        addObject(disappearingcloud3,553,261);
+        
         Cloud cloud2 = new Cloud();
         addObject(cloud2,728,96);
         Cloud cloud3 = new Cloud();
@@ -80,15 +80,16 @@ public class CloudWorld1 extends CloudWorld
         //disappearingcloud.setLocation(503,395);
         //disappearingcloud.setLocation(503,454);
         //disappearingcloud.setLocation(449,172);
-        disappearingcloud.setLocation(194,102);
+        //disappearingcloud.setLocation(194,102);
         //disappearingcloud2.setLocation(425,216);
 
-        disappearingcloud2.setLocation(350,315);
+        //disappearingcloud2.setLocation(350,315);
 
         //disappearingcloud3.setLocation(323,276);
-        disappearingcloud3.setLocation(553,261);
-
-        addObject(pig, 50, 400);
+        //disappearingcloud3.setLocation(553,261);
+        gPig = new GravityPig(2);
+        pig = new Pig(2);
+        addObject(gPig, 50, 400);
         
         MagicDust magicdust = new MagicDust(true);
         addObject(magicdust,738,47);

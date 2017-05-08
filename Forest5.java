@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Forest5 extends World
 {
     Pig pig5;
+    GravityPig gPig;
     /**
      * Constructor for objects of class Forest5.
      * 
@@ -19,7 +20,7 @@ public class Forest5 extends World
         super(800, 600, 1);
         
         pig5 = new Pig();
-        
+        gPig = new GravityPig(1);
         setBackground(new GreenfootImage("magic.jpeg"));
         
         setup();
@@ -31,7 +32,7 @@ public class Forest5 extends World
         super(800, 600, 1);
         
         pig5 = new Pig(acc);
-        
+        gPig = new GravityPig(acc);
         setBackground(new GreenfootImage("magic.jpeg"));
         
         setup();
@@ -81,17 +82,18 @@ public class Forest5 extends World
         
         addObject(new Feathers(), 726, 239);
         
-        addObject(pig5, 45, 545);
+        addObject(gPig, 45, 545);
+        
     }
         
     public void act()
     {
-       if (pig5.getX() < 10)
+       if (gPig.getX() < 10)
        {
-           Greenfoot.setWorld(new Forest4(true, pig5.numacc()));
+           Greenfoot.setWorld(new Forest4(true, gPig.numacc()));
             // fix pig placement
        }
-       if (pig5.getX() > 760)
+       if (gPig.getX() > 760)
        {
            //Greenfoot.setWorld();
            goToCloudWorld();

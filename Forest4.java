@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Forest4 extends World
 {
     Pig pig4;
+    GravityPig gPig;
     /**
      * Constructor for objects of class Forest4.
      * 
@@ -18,7 +19,9 @@ public class Forest4 extends World
         super(800, 600, 1); 
         setup();
         pig4 = new Pig();
-        addObject(pig4, 45, 545);
+        gPig = new GravityPig(1);
+        //addObject(pig4, 45, 545);
+        addObject(gPig, 45, 545);
         addObject(new PassableForest(), 670, 380);
         addObject(new Forest(), 670, 380);
         addObject(new Mushroom(), 42, 74);
@@ -28,16 +31,19 @@ public class Forest4 extends World
         super(800, 600, 1); 
         setup();
         pig4 = new Pig(acc);
+        gPig = new GravityPig(acc);
         
         if (returning)
         {
+            gPig.setImage("pigSprites/standingLeft.png");
             pig4.setImage("pigSprites/standingLeft.png");
-            addObject(pig4, 750, 540);
+            //addObject(pig4, 750, 540);
+            addObject(gPig, 750, 540);
             addObject(new PassableForest(), 670, 380);
         }
         else
         {
-            addObject(pig4, 45, 545);
+            addObject(gPig, 45, 545);
             addObject(new PassableForest(), 670, 380);
             addObject(new Forest(), 670, 380);
             addObject(new Mushroom(), 42, 74);
@@ -48,11 +54,12 @@ public class Forest4 extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         setBackground(new GreenfootImage("gradient.png"));
         
-        Grass grass = new Grass();
-        int grassH = grass.getImage().getHeight()/2;
-        int grassW = grass.getImage().getWidth()/2;
+        GreenfootImage grassImg = new GreenfootImage("Grass_small.png");
+        int grassH = grassImg.getHeight()/2;
+        int grassW = grassImg.getWidth()/2;
         int worldH = getHeight();
         int worldW = getWidth();
+        Grass grass = new Grass();
         addObject(grass, worldW - grassW, worldH - grassH);
         addObject(new Grass(), worldW - grassW*3, worldH - grassH);
         addObject(new Grass(), worldW - grassW*5, worldH - grassH);
@@ -67,14 +74,14 @@ public class Forest4 extends World
     }
     public void act()
     {
-       if (pig4.getX() < 10 && pig4.getY() > 400)
+       if (gPig.getX() < 10 && gPig.getY() > 400)
        {
-           Greenfoot.setWorld(new Forest3(true, pig4.numacc()));
+           Greenfoot.setWorld(new Forest3(true, gPig.numacc()));
             // fix pig placement
        }
-       if (pig4.getX() > 760)
+       if (gPig.getX() > 760)
        {
-           Greenfoot.setWorld(new Forest5(pig4.numacc()));
+           Greenfoot.setWorld(new Forest5(gPig.numacc()));
        }
        
     }

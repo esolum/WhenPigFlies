@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Industrial2 extends World
 {
     Pig pig;
+    GravityPig gPig;
     /**
      * Constructor for objects of class Industrial2.
      * 
@@ -18,10 +19,9 @@ public class Industrial2 extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.       
         super(800, 600, 1); 
         pig = new Pig();
+        gPig = new GravityPig(0);
         setBackground("industrialBG.png");
-        
-        addObject(new IndustrialRoad(), 400, 560);
-        
+
         BlueLedge roofLedge = new BlueLedge();
         roofLedge.getImage().scale(370, 15);
         BlueLedge brickLedge = new BlueLedge();
@@ -45,13 +45,14 @@ public class Industrial2 extends World
         
         addObject(new Wings(), 650, 50);
         
-        addObject(pig, 55, pigY); 
+        addObject(gPig, 55, pigY); 
     }
     public Industrial2(boolean returning, int acc, int pigY)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.        
         super(800, 600, 1); 
         pig = new Pig(acc);
+        gPig = new GravityPig(acc);
         setBackground("industrialBG.png");
         
         addObject(new IndustrialRoad(), 400, 560);
@@ -79,22 +80,22 @@ public class Industrial2 extends World
         
         if (!returning)
         {
-            addObject(pig, 55, 200); 
+            addObject(gPig, 55, 200); 
         }
         else 
         {
-            addObject(pig, 745, pigY); 
+            addObject(gPig, 745, pigY); 
         }
     }
     public void act(){
         //if (pig.getX() < 40 && pig.getY() < 300)
-        if (pig.getX() < 40)
+        if (gPig.getX() < 40 && gPig.getY() < 400)
         {
-            Greenfoot.setWorld(new Industrial1(true, pig.numacc(), pig.getY()));
+            Greenfoot.setWorld(new Industrial1(true, gPig.numacc(), gPig.getY()));
         }
-        else if (pig.getX() > 760 && pig.numacc() >= 1)
+        else if (gPig.getX() > 760 && gPig.numacc() >= 1)
         {
-            Greenfoot.setWorld(new Forest1(false, pig.numacc()));
+            Greenfoot.setWorld(new Forest1(false, gPig.numacc()));
         }
     }
 }

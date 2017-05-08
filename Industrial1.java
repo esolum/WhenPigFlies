@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Industrial1 extends World
 {
-    Pig pig = new Pig();
     Controls controls;
+    GravityPig gPig;
     GreenfootSound sounds = new GreenfootSound("city-sounds.wav");
     /**
      * Constructor for objects of class Industrial1.
@@ -19,7 +19,7 @@ public class Industrial1 extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
-        pig = new Pig();
+        gPig = new GravityPig(0);
         setBackground("industrialBG.png");
         
         addObject(new IndustrialRoad(), 400, 560);
@@ -51,16 +51,17 @@ public class Industrial1 extends World
         addObject(trashLedge, 400, 435);
         addObject(new TrashCan(), 400, 475);
         
-        addObject(pig, 55, 400);
+        addObject(gPig, 55, 400);
         
         controls = new Controls();
         addObject(controls, 400, 300);
+
     }
     public Industrial1(boolean returning, int acc, int pigY)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
-        pig = new Pig(acc);
+        gPig = new GravityPig(acc);
         setBackground("industrialBG.png");
         
         addObject(new IndustrialRoad(), 400, 560);
@@ -94,18 +95,18 @@ public class Industrial1 extends World
         
         if (!returning)
         {
-            addObject(pig, 55, 100); 
+            addObject(gPig, 55, 100); 
         }
         else 
         {
-            addObject(pig, 745, pigY);
+            addObject(gPig, 745, pigY);
         }
 
     }
     public void act(){
-        if (pig.getX() > 760 && pig.numacc() <= 1)
+        if (gPig.getX() > 760 && gPig.numacc() <= 1)
         {
-            Greenfoot.setWorld(new Industrial2(pig.getY()));
+            Greenfoot.setWorld(new Industrial2(gPig.getY()));
         }
         
         if(!sounds.isPlaying()) {
