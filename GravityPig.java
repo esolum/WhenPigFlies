@@ -459,7 +459,8 @@ public class GravityPig extends Actor
     {
         if (getOneObjectAtOffset(0, 0, Lake.class) != null)
         {
-            Greenfoot.setWorld(new Forest1(false, 1));
+            //Greenfoot.setWorld(new Forest1(false, 1));
+            Greenfoot.setWorld(new hurtScreen(getWorld()));
         }
     }
     

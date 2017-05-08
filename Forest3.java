@@ -93,8 +93,6 @@ public class Forest3 extends World
         addObject(new Cloud(), 61, 90);
         addObject(new Cloud(), 141, 85); 
         
-        
-        
         //addObject(pig3, 45, 550);
     }
     public void act()
