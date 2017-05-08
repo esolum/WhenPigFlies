@@ -107,6 +107,9 @@ public class Industrial1 extends World
         if (gPig.getX() > 760 && gPig.numacc() <= 1)
         {
             Greenfoot.setWorld(new Industrial2(gPig.getY()));
+            if(sounds.isPlaying()) {
+                sounds.stop(); 
+            }
         }
         
         if(!sounds.isPlaying()) {

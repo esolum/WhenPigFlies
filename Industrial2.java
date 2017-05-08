@@ -10,6 +10,7 @@ public class Industrial2 extends World
 {
     Pig pig;
     GravityPig gPig;
+    GreenfootSound sounds = new GreenfootSound("city-sounds.wav");
     /**
      * Constructor for objects of class Industrial2.
      * 
@@ -90,14 +91,20 @@ public class Industrial2 extends World
         }
     }
     public void act(){
+        if(!sounds.isPlaying()) {
+           sounds.playLoop(); 
+        }
+        
         //if (pig.getX() < 40 && pig.getY() < 300)
         if (gPig.getX() < 40 && gPig.getY() < 400)
         {
             Greenfoot.setWorld(new Industrial1(true, gPig.numacc(), gPig.getY()));
+            sounds.pause();
         }
         else if (gPig.getX() > 760 && gPig.numacc() >= 1)
         {
             Greenfoot.setWorld(new Forest1(false, gPig.numacc()));
+            sounds.pause();
         }
     }
 }

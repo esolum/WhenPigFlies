@@ -201,11 +201,12 @@ public class GravityPig extends Actor
             setImage(jumpRight1);    
         }
         else {
-            if(frameCount%40 <20) {
-                setImage(walkRight1);
+            System.out.println("Frame count: " + (frameCount%2));
+            if(getImage() == walkRight1) {
+                setImage(walkRight2);
             }
             else {
-                setImage(walkRight2);
+                setImage(walkRight1);
             }
         }
         
@@ -222,7 +223,8 @@ public class GravityPig extends Actor
             setImage(jumpLeft1);    
         }
         else {
-            if(frameCount%40 <20) {
+            System.out.println("Frame count: " + (frameCount%2));
+            if(getImage() == walkLeft2) {
                 setImage(walkLeft1);
             }
             else {
@@ -414,38 +416,33 @@ public class GravityPig extends Actor
     }
     
     private boolean checkForMoveableObjects() {
-        if(dir == Direction.LEFT) {
-            Actor moveable = getOneObjectAtOffset(-getImage().getWidth()/2 -8, 0, Moveable.class);
-            if(moveable != null) {
-                return true;
-            }
-            
-        }
-        else {
-            Actor moveable = getOneObjectAtOffset(getImage().getWidth()/2 +8, 0, Moveable.class);
-            if(moveable != null) {
-                return true;
-            }
+        ArrayList<Moveable> moveables = (ArrayList<Moveable>)getObjectsInRange(75, Moveable.class);
+        if(!moveables.isEmpty()) {
+            return true;
         }
         return false;
     }
     public void headbutt()
     {
-        if(dir == Direction.LEFT) {
-            Actor moveable = getOneObjectAtOffset(-getImage().getWidth()/2, 0, Moveable.class);
-            if(moveable != null) {
+        ArrayList<Moveable> moveables = (ArrayList<Moveable>)getObjectsInRange(75, Moveable.class);
+        Moveable obj = moveables.get(0);
+        if(obj.getX() < getX() && dir == Direction.LEFT) {
+            //Actor moveable = getOneObjectAtOffset(-getImage().getWidth()/2, 0, Moveable.class);
+            /*if(moveable != null) {
                 setImage(headbuttStandingLeft);
                 moveable.move(-moveableDistance);
                 //moveable.setLocation(moveable.getX() - (int)moveSpeed, moveable.getY());
-            }
+            }*/
+            setImage(headbuttStandingLeft);
+            obj.move(-moveableDistance);
         }
-        else {
+        else if(obj.getX() > getX() && dir==Direction.RIGHT){
             Actor moveable = getOneObjectAtOffset(getImage().getWidth()/2, 0, Moveable.class);
-            if(moveable != null) {
-                setImage(headbuttStandingRight);
-                moveable.move(moveableDistance);
+            //if(moveable != null) {
+            setImage(headbuttStandingRight);
+            obj.move(moveableDistance);
                 //moveable.setLocation(moveable.getX() - (int)moveSpeed, moveable.getY());
-            }
+            //}
         }
         
     }  
