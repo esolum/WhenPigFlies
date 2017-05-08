@@ -19,6 +19,7 @@ public class GravityPig extends Actor
     private int forceGravity;
     private double delta;
     private int accLevel = 0;
+    private boolean isWearing = false;
     private boolean jumping = false;
     private int hSpeed = 5;
     private int jumpTimer = 0;
@@ -187,6 +188,8 @@ public class GravityPig extends Actor
         {
             runNarration();
         }
+        
+        displayMessage();
     }   
     
     public void moveRight()
@@ -517,16 +520,34 @@ public class GravityPig extends Actor
         if (!wearables.isEmpty()){
             accLevel++;
             setImages();
+            isWearing = true;
             getWorld().removeObject(wearables.get(0));
             if (accLevel == 4)
             {
                 Greenfoot.setWorld(new FinishScreen());
             }
-            showLevelCompleteScreen();
-            
+            showLevelCompleteScreen();            
+        }
+        else {
+            isWearing = false;
         }
     } 
     
+    public boolean isWearing(boolean b) {
+        return b;
+    }
+    
+    public void displayMessage() {
+        if (isWearing == true) {
+            if (numacc() == 1) {
+                bubble.setImage("wingConfirmation.png");
+            }
+            else if (numacc() == 3) {
+                bubble.setImage("featherConfirmation.png");
+            }
+            getWorld().addObject(bubble, getX() - 50, getY());
+        }
+    }
     public void showLevelCompleteScreen() {
         
     }
