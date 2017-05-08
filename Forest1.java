@@ -112,14 +112,16 @@ public class Forest1 extends World
     {
         if (gPig.getX() < 20)
         {
-            Greenfoot.setWorld(new Industrial2(true, gPig.numacc(), gPig.getY()));
             music.stop();
+            Greenfoot.setWorld(new Industrial2(true, gPig.numacc(), gPig.getY()));
+            
         }
         if (gPig.getX() > 760 && gPig.getY() < 120)
         {
             //World world = new Forest2();
-            Greenfoot.setWorld(new Forest2(false, gPig.numacc()));
             music.stop();
+            Greenfoot.setWorld(new Forest2(false, gPig.numacc()));
+            
         }
         /*
         if (pig1.getX() < 20)
@@ -131,8 +133,6 @@ public class Forest1 extends World
             //World world = new Forest2();
             Greenfoot.setWorld(new Forest2(false, pig1.numacc()));
         }*/
-        if(!music.isPlaying()) {
-            music.playLoop();
-        }
+
     } 
 }
