@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Forest1 extends World
 {
-
+    GravityPig gPig;
     Pig pig1 = new Pig();
     GreenfootSound music = new GreenfootSound("forest-melody.mp3");
     
@@ -21,7 +21,9 @@ public class Forest1 extends World
         super(800, 600, 1); 
         setup();
         pig1 = new Pig();
-        addObject(pig1, 55, 550); 
+        gPig = new GravityPig(1);
+        //addObject(pig1, 55, 550); 
+        addObject(gPig, 55, 525); 
     }
     public Forest1(boolean returning, int acc)
     {    
@@ -29,14 +31,18 @@ public class Forest1 extends World
         super(800, 600, 1); 
         setup();
         pig1 = new Pig(acc);
+        gPig = new GravityPig(acc);
         if (returning)
         {
-            pig1.setImage("pigSprites/standingLeft.png");
-            addObject(pig1, 755, 82);
+            //pig1.setImage("pigSprites/standingLeft.png");
+            gPig.setImage("pigSprites/standingLeft.png");
+            addObject(gPig, 755, 82); 
+            //addObject(pig1, 755, 82);
         }
         else
         {
-            addObject(pig1, 55, 550); 
+            addObject(gPig, 55, 525); 
+            //addObject(pig1, 55, 550); 
         }
         
         
@@ -46,13 +52,14 @@ public class Forest1 extends World
     {
         
         setBackground(new GreenfootImage("gradient.png"));
+        GreenfootImage grassImg = new GreenfootImage("Grass_small.png");
         
-        Grass grass = new Grass();
-        int grassH = grass.getImage().getHeight()/2;
-        int grassW = grass.getImage().getWidth()/2;
+        int grassH = grassImg.getHeight()/2;
+        int grassW = grassImg.getWidth()/2;
         int worldH = getHeight();
         int worldW = getWidth();
         
+        Grass grass = new Grass();
         addObject(grass, worldW - grassW, worldH - grassH);
         addObject(new Grass(), worldW - grassW*3, worldH - grassH);
         addObject(new Grass(), worldW - grassW*5, worldH - grassH);
@@ -75,6 +82,19 @@ public class Forest1 extends World
     }
      public void act()
     {
+        if (gPig.getX() < 20)
+        {
+            Greenfoot.setWorld(new Industrial2(true, gPig.numacc(), gPig.getY()));
+        }
+        if (gPig.getX() > 760 && gPig.getY() < 120)
+        {
+            //World world = new Forest2();
+            Greenfoot.setWorld(new Forest2(false, gPig.numacc()));
+        }
+        if(!music.isPlaying()) {
+            music.playLoop();
+        }
+        /*
         if (pig1.getX() < 20)
         {
             Greenfoot.setWorld(new Industrial2(true, pig1.numacc(), pig1.getY()));
@@ -86,6 +106,6 @@ public class Forest1 extends World
         }
         if(!music.isPlaying()) {
             music.playLoop();
-        }
+        }*/
     } 
 }
