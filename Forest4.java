@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Forest4 extends World
 {
-    Pig pig4;
+    //Pig pig4;
     GravityPig gPig;
     /**
      * Constructor for objects of class Forest4.
@@ -18,7 +18,7 @@ public class Forest4 extends World
     {
         super(800, 600, 1); 
         setup();
-        pig4 = new Pig();
+        //pig4 = new Pig();
         gPig = new GravityPig(1);
         //addObject(pig4, 45, 545);
         addObject(gPig, 45, 545);
@@ -30,13 +30,13 @@ public class Forest4 extends World
     {
         super(800, 600, 1); 
         setup();
-        pig4 = new Pig(acc);
+        //pig4 = new Pig(acc);
         gPig = new GravityPig(acc);
         
         if (returning)
         {
             gPig.setImage("pigSprites/standingLeft.png");
-            pig4.setImage("pigSprites/standingLeft.png");
+            //pig4.setImage("pigSprites/standingLeft.png");
             //addObject(pig4, 750, 540);
             addObject(gPig, 750, 540);
             addObject(new PassableForest(), 670, 380);
@@ -77,10 +77,11 @@ public class Forest4 extends World
        if (gPig.getX() < 10 && gPig.getY() > 400)
        {
            Greenfoot.setWorld(new Forest3(true, gPig.numacc()));
-            // fix pig placement
+           
        }
        if (gPig.getX() > 760)
        {
+           //Greenfoot.setWorld(new Forest5(gPig.numacc()));
            Greenfoot.setWorld(new Forest5(gPig.numacc()));
        }
        

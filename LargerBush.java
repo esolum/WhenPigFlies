@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class LargerBush extends Ground
+public class LargerBush extends Scenery
 {
     /**
      * Act - do whatever the LargerBush wants to do. This method is called whenever

@@ -43,6 +43,10 @@ public class FarmWorld extends World
         {
             Industrial1 industrial = new Industrial1();
             Greenfoot.setWorld(industrial);
+            if(ambient.isPlaying()) {
+            
+                ambient.pause();
+            }
             //MouseInfo mouse=Greenfoot.getMouseInfo();
             //int mX=mouse.getX(), mY=mouse.getY();
             // with text top at 80, bottom at 100, left at 350, and right at 450
@@ -51,19 +55,19 @@ public class FarmWorld extends World
         
         if (bird.getX() < 20)
         {
+            if(ambient.isPlaying()) {
+            
+                ambient.pause();
+            }
             removeObject(bird);
         }
         
-        if(!ambient.isPlaying()) {
-            
-            ambient.stop();
-        }
     }
     
     public void stopped() {
         if(ambient.isPlaying()) {
             
-            ambient.stop();
+            ambient.pause();
         }
     }
         

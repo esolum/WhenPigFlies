@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class FoliageSmall extends Ground
+public class FoliageSmall extends Scenery
 {
     /**
      * Act - do whatever the FoliageSmall wants to do. This method is called whenever

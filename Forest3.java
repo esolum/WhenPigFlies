@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Forest3 extends World
 {
-    Pig pig3;
+    //Pig pig3;
     GravityPig gPig;
     Lake lake = new Lake();
     /**
@@ -19,12 +19,12 @@ public class Forest3 extends World
     {
         super(800, 600, 1); 
         setup();
-        pig3 = new Pig();
+        //pig3 = new Pig();
         gPig = new GravityPig(1);
-        addObject(pig3, 45, 550);
+        addObject(gPig, 45, 550);
         //addObject(new Lake(), 480, 428);
         //addObject(lake, 480, 428);
-        addObject(lake, 480, 560);
+        addObject(lake, 595, 560);
         addObject(new DirtPile(), 475, 98);
         addObject(new DirtPile(), 84, 57);
     }
@@ -32,7 +32,7 @@ public class Forest3 extends World
     {
         super(800, 600, 1); 
         setup();
-        pig3 = new Pig(acc);
+        //pig3 = new Pig(acc);
         gPig = new GravityPig(acc);
         if (returning)
         {
@@ -43,7 +43,7 @@ public class Forest3 extends World
         {
             addObject(gPig, 45, 550);
             //addObject(new Lake(), 480, 428);
-            addObject(lake, 480, 560);
+            addObject(lake, 595, 560);
             addObject(new DirtPile(), 475, 98);
             addObject(new DirtPile(), 84, 57);
         }
@@ -74,7 +74,7 @@ public class Forest3 extends World
         addObject(new Grass(), worldW - grassW*5, worldH - grassH);
         addObject(new Grass(), worldW - grassW*7, worldH - grassH);
         
-        addObject(new Cloud(), 275, 246);
+        addObject(new Cloud(), 315, 266);
         addObject(new Cloud(), 95, 339);
         addObject(new Cloud(), 203, 450);
         addObject(new Cloud(), 439, 132);
@@ -93,7 +93,7 @@ public class Forest3 extends World
            Greenfoot.setWorld(new Forest2(true, gPig.numacc()));
             // fix pig placement
        }
-       if (gPig.getX() > 760)
+       if (gPig.getX() > 760 && gPig.getY() > 530)
        {
            Greenfoot.setWorld(new Forest4(false, gPig.numacc()));
        }

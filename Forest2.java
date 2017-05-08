@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Forest2 extends World
 {
-    Pig pig2;
+    //Pig pig2;
     GravityPig gPig;
     /**
      * Constructor for objects of class Forest2.
@@ -63,6 +63,24 @@ public class Forest2 extends World
         addObject(new Grass(), worldW - grassW*3, worldH - grassH);
         addObject(new Grass(), worldW - grassW*5, worldH - grassH);
         addObject(new Grass(), worldW - grassW*7, worldH - grassH);
+        
+        addObject(new GreenLedge(), 33, 118);
+        addObject(new GreenLedge(), 105, 118);
+        addObject(new GreenLedge(), 106, 111);
+        addObject(new GreenLedge(), 179, 110);
+        addObject(new GreenLedge(), 296, 211);
+        addObject(new GreenLedge(), 237, 206);
+        addObject(new GreenLedge(), 165, 206);
+        addObject(new GreenLedge(), 540, 323);
+        addObject(new GreenLedge(), 473, 321);
+        addObject(new GreenLedge(), 418, 325);
+        addObject(new GreenLedge(), 369, 333);
+        addObject(new GreenLedge(), 442, 333);
+        addObject(new GreenLedge(), 515, 333);
+        addObject(new GreenLedge(), 670, 446);
+        addObject(new GreenLedge(), 600, 447);
+        addObject(new GreenLedge(), 640, 456);
+        addObject(new GreenLedge(), 567, 456);
         
         addObject(new Branch(), 93, 385);
         

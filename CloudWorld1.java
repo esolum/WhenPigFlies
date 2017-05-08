@@ -87,8 +87,7 @@ public class CloudWorld1 extends CloudWorld
 
         //disappearingcloud3.setLocation(323,276);
         //disappearingcloud3.setLocation(553,261);
-        gPig = new GravityPig(2);
-        pig = new Pig(2);
+        gPig = new GravityPig(3);
         addObject(gPig, 50, 400);
         
         MagicDust magicdust = new MagicDust(true);
