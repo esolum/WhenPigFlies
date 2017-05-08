@@ -21,7 +21,7 @@ public class Forest2 extends World
         //pig2 = new Pig();
         gPig = new GravityPig(1);
         setup();
-        music.playLoop();
+        
         addObject(gPig, 45, 80);
     }
     /* public Forest2(int acc)
@@ -35,7 +35,6 @@ public class Forest2 extends World
     {
         super(800, 600, 1); 
         setup();
-        music.playLoop();
         //pig2 = new Pig(acc);
         gPig = new GravityPig(acc);
         if (returning)
@@ -52,7 +51,7 @@ public class Forest2 extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         
-        
+        music.playLoop();
         setBackground(new GreenfootImage("gradient.png"));
         GreenfootImage grassImg = new GreenfootImage("Grass_small.png");
         
@@ -101,14 +100,16 @@ public class Forest2 extends World
     {
        if (gPig.getX() < 18 && gPig.getY() < 185)
        {
-           Greenfoot.setWorld(new Forest1(true, gPig.numacc()));
            music.stop();
+           Greenfoot.setWorld(new Forest1(true, gPig.numacc()));
+           
             // fix pig placement
        }
        if (gPig.getX() > 760)
        {
-           Greenfoot.setWorld(new Forest3(false, gPig.numacc()));
            music.stop();
+           Greenfoot.setWorld(new Forest3(false, gPig.numacc()));
+           
         }
     }
 }

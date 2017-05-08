@@ -21,7 +21,7 @@ public class Industrial1 extends World
         super(800, 600, 1); 
         gPig = new GravityPig(0);
         setBackground("industrialBG.png");
-        
+        sounds.playLoop();
         addObject(new IndustrialRoad(), 400, 560);
         
         BlueLedge benchLedge = new BlueLedge();
@@ -82,7 +82,7 @@ public class Industrial1 extends World
         Lake lake = new Lake();
         lake.getImage().scale(250, 75);
         
-        sounds.playLoop();
+        //sounds.playLoop();
         
         addObject(benchLedge, 200, 480);
         addObject(stopLedge, 250, 325);
@@ -108,8 +108,9 @@ public class Industrial1 extends World
     public void act(){
         if (gPig.getX() > 760 && gPig.numacc() <= 1)
         {
-            Greenfoot.setWorld(new Industrial2(gPig.getY()));
             sounds.stop(); 
+            Greenfoot.setWorld(new Industrial2(gPig.getY()));
+            
             
         }
         
@@ -121,9 +122,4 @@ public class Industrial1 extends World
         }
     }
     
-    public void stopped() {
-        if(sounds.isPlaying()) {
-           sounds.pause();
-        }
-    }
 }

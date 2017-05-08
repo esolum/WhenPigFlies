@@ -47,7 +47,7 @@ public class Industrial2 extends World
         addObject(elevator, 705, 105);
         
         addObject(new Wings(), 650, 50);
-        
+        sounds.playLoop();
         addObject(gPig, 55, pigY); 
     }
     public Industrial2(boolean returning, int acc, int pigY)
@@ -96,13 +96,15 @@ public class Industrial2 extends World
         //if (pig.getX() < 40 && pig.getY() < 300)
         if (gPig.getX() < 40 && gPig.getY() < 400)
         {
-            Greenfoot.setWorld(new Industrial1(true, gPig.numacc(), gPig.getY()));
             sounds.stop();
+            Greenfoot.setWorld(new Industrial1(true, gPig.numacc(), gPig.getY()));
+            
         }
         else if (gPig.getX() > 760 && gPig.numacc() >= 1)
         {
-            Greenfoot.setWorld(new Forest1(false, gPig.numacc()));
             sounds.stop();
+            Greenfoot.setWorld(new Forest1(false, gPig.numacc()));
+            
         }
     }
 }
