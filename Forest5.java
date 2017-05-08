@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Forest5 extends World
 {
     GravityPig gPig;
+    GreenfootSound music = new GreenfootSound("forest-melody.mp3");
     /**
      * Constructor for objects of class Forest5.
      * 

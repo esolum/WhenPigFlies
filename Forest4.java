@@ -10,6 +10,7 @@ public class Forest4 extends World
 {
     //Pig pig4;
     GravityPig gPig;
+    GreenfootSound music = new GreenfootSound("forest-melody.mp3");
     /**
      * Constructor for objects of class Forest4.
      * 
@@ -65,20 +66,11 @@ public class Forest4 extends World
         addObject(new Grass(), worldW - grassW*5, worldH - grassH);
         addObject(new Grass(), worldW - grassW*7, worldH - grassH);
         
-        addObject(new cloudLedge(), 99, 447);
-        addObject(new cloudLedge(), 276, 354);
-        addObject(new cloudLedge(), 49, 267);
-        addObject(new cloudLedge(), 313, 185);
-        addObject(new cloudLedge(), 71, 103);
-        
         addObject(new Cloud(), 99, 447);
         addObject(new Cloud(), 276, 354);
         addObject(new Cloud(), 49, 267);
         addObject(new Cloud(), 313, 185);
         addObject(new Cloud(), 71, 103);
-        
-        
-        
         
     }
     public void act()

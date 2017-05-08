@@ -20,6 +20,7 @@ public class Forest1 extends World
     {
         super(800, 600, 1); 
         setup();
+        music.playLoop();
         //pig1 = new Pig();
         gPig = new GravityPig(1);
         //addObject(pig1, 55, 550); 
@@ -32,6 +33,7 @@ public class Forest1 extends World
         setup();
         //pig1 = new Pig(acc);
         gPig = new GravityPig(acc);
+        music.playLoop();
         if (returning)
         {
             //pig1.setImage("pigSprites/standingLeft.png");
@@ -41,7 +43,7 @@ public class Forest1 extends World
         }
         else
         {
-            addObject(gPig, 55, 525); 
+            addObject(gPig, 55, 525);
             //addObject(pig1, 55, 550); 
         }
         
@@ -111,14 +113,13 @@ public class Forest1 extends World
         if (gPig.getX() < 20)
         {
             Greenfoot.setWorld(new Industrial2(true, gPig.numacc(), gPig.getY()));
+            music.stop();
         }
         if (gPig.getX() > 760 && gPig.getY() < 120)
         {
             //World world = new Forest2();
             Greenfoot.setWorld(new Forest2(false, gPig.numacc()));
-        }
-        if(!music.isPlaying()) {
-            music.playLoop();
+            music.stop();
         }
         /*
         if (pig1.getX() < 20)
@@ -129,9 +130,9 @@ public class Forest1 extends World
         {
             //World world = new Forest2();
             Greenfoot.setWorld(new Forest2(false, pig1.numacc()));
-        }
+        }*/
         if(!music.isPlaying()) {
             music.playLoop();
-        }*/
+        }
     } 
 }

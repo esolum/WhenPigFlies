@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Forest2 extends World
 {
     //Pig pig2;
+    GreenfootSound music = new GreenfootSound("forest-melody.mp3");
     GravityPig gPig;
     /**
      * Constructor for objects of class Forest2.
@@ -20,6 +21,7 @@ public class Forest2 extends World
         //pig2 = new Pig();
         gPig = new GravityPig(1);
         setup();
+        music.playLoop();
         addObject(gPig, 45, 80);
     }
     /* public Forest2(int acc)
@@ -33,6 +35,7 @@ public class Forest2 extends World
     {
         super(800, 600, 1); 
         setup();
+        music.playLoop();
         //pig2 = new Pig(acc);
         gPig = new GravityPig(acc);
         if (returning)
@@ -99,11 +102,13 @@ public class Forest2 extends World
        if (gPig.getX() < 18 && gPig.getY() < 185)
        {
            Greenfoot.setWorld(new Forest1(true, gPig.numacc()));
+           music.stop();
             // fix pig placement
        }
        if (gPig.getX() > 760)
        {
            Greenfoot.setWorld(new Forest3(false, gPig.numacc()));
+           music.stop();
         }
     }
 }
