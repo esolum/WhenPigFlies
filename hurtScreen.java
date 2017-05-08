@@ -44,6 +44,7 @@ public class hurtScreen extends World
         if (bird.getX() < 20)
         {
             removeObject(bird);
+            Greenfoot.setWorld(prevWorld);
         }
     }
 }

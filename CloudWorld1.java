@@ -78,7 +78,7 @@ public class CloudWorld1 extends CloudWorld
         addObject(cloudledge,73,465);
         
         cloudLedge cloudledge2 = new cloudLedge();
-        addObject(cloudledge2,350,322);
+        addObject(cloudledge2,235,346);
         cloudLedge cloudledge3 = new cloudLedge();
         addObject(cloudledge3,555,270);
         cloudLedge cloudledge4 = new cloudLedge();
@@ -86,16 +86,16 @@ public class CloudWorld1 extends CloudWorld
         cloudLedge cloudledge5 = new cloudLedge();
         addObject(cloudledge5,734,102);
         cloudLedge cloudledge6 = new cloudLedge();
-        addObject(cloudledge6,195,110);
+        addObject(cloudledge6,217,212);
 
         Cloud cloud = new Cloud();
         addObject(cloud,70,461);
-        DisappearingCloud disappearingcloud = new DisappearingCloud();
-        addObject(disappearingcloud,194,102);
+        DisappearingCloud1 disappearingcloud = new DisappearingCloud1();
+        addObject(disappearingcloud,217,206);
 
-        DisappearingCloud disappearingcloud2 = new DisappearingCloud();
-        addObject(disappearingcloud2,350,315);
-        DisappearingCloud disappearingcloud3 = new DisappearingCloud();
+        DisappearingCloud1 disappearingcloud2 = new DisappearingCloud1();
+        addObject(disappearingcloud2,235,338);
+        DisappearingCloud1 disappearingcloud3 = new DisappearingCloud1();
         addObject(disappearingcloud3,553,261);
 
         Cloud cloud2 = new Cloud();

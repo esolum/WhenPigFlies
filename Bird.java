@@ -161,25 +161,25 @@ public class Bird extends Actor
     public void tellPigHurt()
     {
         talking = true;
-        if (frameCount >= 75 && frameCount < 150)
+        if (frameCount >= 50 && frameCount < 100)
         {
             animateTalking();
             bubble.setImage("hurtSpeech1.png");
             getWorld().addObject(bubble, 410, 100);
         }
-        else if (frameCount >= 225 && frameCount < 300)
+        else if (frameCount >= 150 && frameCount < 200)
         {
             animateTalking();
             bubble.setImage("hurtSpeech2.png");
             getWorld().addObject(bubble, 410, 100);
         }
-        else if (frameCount >= 375 && frameCount < 450)
+        else if (frameCount >= 250 && frameCount < 300)
         {
             animateTalking();
             bubble.setImage("hurtSpeech3.png");
             getWorld().addObject(bubble, 410, 100);
         }
-        else if (frameCount >= 525)// && frameCount < 700)
+        else if (frameCount >= 350)// && frameCount < 700)
         {
             //animateTalking();
             //bubble.setImage("farmSpeech9.png");
