@@ -46,7 +46,15 @@ public class Bird extends Actor
         
         switch(phase) {
             case 1: 
-                flyIn();
+                //flyIn();
+                if (getWorld() instanceof FarmWorld)
+                {
+                    flyIn();
+                }
+                else if (getWorld() instanceof hurtScreen)
+                {
+                    flyInFast();
+                }
                 break;
             case 2:
                 if (getWorld() instanceof FarmWorld)
@@ -100,6 +108,19 @@ public class Bird extends Actor
         
         
     }
+    public void flyInFast()
+    {
+        animateFlying();
+        if (x > 550)
+        {
+            x -= 5;
+            setLocation(x, getY());
+        }
+        else
+        {
+            phase++;
+        }
+    }
     
     public void talkToPig() {
         talking = true;
@@ -140,37 +161,42 @@ public class Bird extends Actor
     public void tellPigHurt()
     {
         talking = true;
-        if (frameCount >= 400 && frameCount < 550)
+        if (frameCount >= 75 && frameCount < 150)
         {
             animateTalking();
             bubble.setImage("hurtSpeech1.png");
-            getWorld().addObject(bubble, 420, 100);
+            getWorld().addObject(bubble, 410, 100);
         }
-        else if (frameCount >= 700 && frameCount < 850)
+        else if (frameCount >= 225 && frameCount < 300)
         {
             animateTalking();
             bubble.setImage("hurtSpeech2.png");
-            //getWorld().addObject(bubble, 420, 100);
+            getWorld().addObject(bubble, 410, 100);
         }
-        else if (frameCount >= 1000 && frameCount < 1150)
+        else if (frameCount >= 375 && frameCount < 450)
         {
             animateTalking();
             bubble.setImage("hurtSpeech3.png");
-            //getWorld().addObject(bubble, 420, 100);
+            getWorld().addObject(bubble, 410, 100);
         }
-        else if (frameCount >= 1150 && frameCount < 1130)
+        else if (frameCount >= 525)// && frameCount < 700)
         {
             //animateTalking();
             //bubble.setImage("farmSpeech9.png");
             //getWorld().addObject(bubble, 420, 100);
+            getWorld().removeObject(bubble);
+            talking = false;
+            x-= 5;
+            animateFlying();
+            setLocation(x, getY());
         }
-        else if (frameCount >= 1130)
+        /* else if (frameCount >= 1130)
         {
             getWorld().removeObject(bubble);
             talking = false;
             x--;
             animateFlying();
             setLocation(x, getY());
-        }
+        } */
     }
 }
