@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Forest1 extends World
 {
     GravityPig gPig;
-    Pig pig1 = new Pig();
+    //Pig pig1 = new Pig();
     GreenfootSound music = new GreenfootSound("forest-melody.mp3");
     
     /**
@@ -65,6 +65,32 @@ public class Forest1 extends World
         addObject(new Grass(), worldW - grassW*5, worldH - grassH);
         addObject(new Grass(), worldW - grassW*7, worldH - grassH);
         
+        addObject(new GreenLedge(), 181, 472);
+        addObject(new GreenLedge(), 163, 476);
+        addObject(new GreenLedge(), 122, 306);
+        addObject(new GreenLedge(), 135, 302);
+        addObject(new GreenLedge(), 286, 389);
+        addObject(new GreenLedge(), 271, 393);
+        addObject(new GreenLedge(), 451, 238);
+        addObject(new GreenLedge(), 383, 238);
+        addObject(new GreenLedge(), 364, 241);
+        addObject(new GreenLedge(), 343, 250);
+        addObject(new GreenLedge(), 350, 246);
+        addObject(new GreenLedge(), 633, 250);
+        addObject(new GreenLedge(), 684, 254);
+        addObject(new GreenLedge(), 590, 254);
+        addObject(new GreenLedge(), 543, 265);
+        addObject(new GreenLedge(), 567, 260);
+        addObject(new GreenLedge(), 576, 257);
+        addObject(new GreenLedge(), 550, 263);
+        addObject(new GreenLedge(), 686, 144);
+        addObject(new GreenLedge(), 644, 254);
+        addObject(new GreenLedge(), 768, 132);
+        addObject(new GreenLedge(), 726, 136);
+        addObject(new GreenLedge(), 709, 140);
+        addObject(new GreenLedge(), 181, 306);
+        addObject(new GreenLedge(), 421, 246);
+        
         addObject(new Trunk(), 350, 465);
         addObject(new HalfTrunk(), 675, 390);
         
@@ -74,8 +100,8 @@ public class Forest1 extends World
         addObject(new LargerBush(), 393, 285);
         
         addObject(new FoliageSmall(), 619, 284);
-        addObject(new Foliage(), 784, 149);
-        addObject(new Foliage(), 762, 184);
+        addObject(new Foliage(), 778, 194);
+        addObject(new Foliage(), 782, 170);
         
         addObject(new Tree(), 724, 510);
         

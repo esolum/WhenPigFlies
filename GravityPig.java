@@ -181,6 +181,7 @@ public class GravityPig extends Actor
         checkForPlatform();
         checkElevator();
         checkWearing();
+        checkLake();
         
         if (getWorld() instanceof FarmWorld) 
         {
@@ -461,7 +462,7 @@ public class GravityPig extends Actor
     {
         if (getOneObjectAtOffset(0, 0, Lake.class) != null)
         {
-            Greenfoot.setWorld(new Forest1());
+            Greenfoot.setWorld(new Forest1(false, 1));
         }
     }
     

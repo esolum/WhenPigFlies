@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Forest5 extends World
 {
-    Pig pig5;
     GravityPig gPig;
     /**
      * Constructor for objects of class Forest5.
@@ -19,7 +18,6 @@ public class Forest5 extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1);
         
-        //pig5 = new Pig();
         gPig = new GravityPig(2);
         setBackground(new GreenfootImage("magic.jpeg"));
         
@@ -31,7 +29,6 @@ public class Forest5 extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1);
         
-        //pig5 = new Pig(acc);
         gPig = new GravityPig(acc);
         setBackground(new GreenfootImage("magic.jpeg"));
         
@@ -91,7 +88,6 @@ public class Forest5 extends World
        if (gPig.getX() < 10)
        {
            Greenfoot.setWorld(new Forest4(true, gPig.numacc()));
-            // fix pig placement
        }
        if (gPig.getX() > 760)
        {

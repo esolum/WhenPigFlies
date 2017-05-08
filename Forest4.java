@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Forest4 extends World
 {
-    Pig pig4;
+    //Pig pig4;
     GravityPig gPig;
     /**
      * Constructor for objects of class Forest4.
@@ -36,7 +36,7 @@ public class Forest4 extends World
         if (returning)
         {
             gPig.setImage("pigSprites/standingLeft.png");
-            pig4.setImage("pigSprites/standingLeft.png");
+            //pig4.setImage("pigSprites/standingLeft.png");
             //addObject(pig4, 750, 540);
             addObject(gPig, 750, 540);
             addObject(new PassableForest(), 670, 380);

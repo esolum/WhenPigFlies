@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MedBush extends Ground
+public class MedBush extends Scenery
 {
     /**
      * Act - do whatever the MedBush wants to do. This method is called whenever
