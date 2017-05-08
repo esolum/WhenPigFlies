@@ -179,11 +179,12 @@ public class GravityPig extends Actor
             setImage(jumpRight1);    
         }
         else {
-            if(frameCount%40 <20) {
-                setImage(walkRight1);
+            System.out.println("Frame count: " + (frameCount%2));
+            if(getImage() == walkRight1) {
+                setImage(walkRight2);
             }
             else {
-                setImage(walkRight2);
+                setImage(walkRight1);
             }
         }
         
@@ -200,7 +201,8 @@ public class GravityPig extends Actor
             setImage(jumpLeft1);    
         }
         else {
-            if(frameCount%40 <20) {
+            System.out.println("Frame count: " + (frameCount%2));
+            if(getImage() == walkLeft2) {
                 setImage(walkLeft1);
             }
             else {
