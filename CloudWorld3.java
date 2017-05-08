@@ -54,8 +54,11 @@ public class CloudWorld3 extends CloudWorld
         
         cloudLedge ledge3 = new cloudLedge();
         addObject(ledge3, 478, 576);
-        Cloud cloud3 = new Cloud();
-        addObject(cloud3, 478, 576);
+        ledge3.getImage().setTransparency(0);
+        
+        DisappearingCloud1 disCloud1 = new DisappearingCloud1(478, 576, ledge3);
+        //Cloud cloud5 = new Cloud();
+        addObject(disCloud1, 478, 576);
         
         cloudLedge ledge4 = new cloudLedge();
         addObject(ledge4, 201, 120);
@@ -64,8 +67,11 @@ public class CloudWorld3 extends CloudWorld
         
         cloudLedge ledge5 = new cloudLedge();
         addObject(ledge5, 228, 341);
-        Cloud cloud5 = new Cloud();
-        addObject(cloud5, 228, 341);
+        ledge5.getImage().setTransparency(0);
+        DisappearingCloud1 disCloud2 = new DisappearingCloud1(228, 341, ledge5);
+        //Cloud cloud5 = new Cloud();
+        addObject(disCloud2, 228, 341);
+        
         
         cloudLedge ledge6 = new cloudLedge();
         addObject(ledge6, 81, 218);

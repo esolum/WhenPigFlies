@@ -32,12 +32,10 @@ public class CloudWorld2 extends CloudWorld
     
     public void act() {
         frameCount++;
-        
         checkPigBoundaries();
     }
     
     private void checkPigBoundaries() {
-        System.out.println("VY: " + gPig.getVY());
         if(gPig.getY() < 20){
             
             music.stop();
@@ -46,7 +44,6 @@ public class CloudWorld2 extends CloudWorld
         }
         if(gPig.getY() > 580 && gPig.getVY() > 0){ 
             music.stop();
-            System.out.println("Cowabunga");
             CloudWorld1 world = new CloudWorld1(gPig);
             Greenfoot.setWorld(world);
         }
@@ -60,10 +57,13 @@ public class CloudWorld2 extends CloudWorld
         addObject(cloud1, 146, 592);
         
         
+        
         cloudLedge cloudledge2 = new cloudLedge();
+        cloudledge2.getImage().setTransparency(0);
         addObject(cloudledge2,293,464);
-        Cloud cloud2 = new Cloud();
-        addObject(cloud2, 283, 460);
+        DisappearingCloud1 disCloud2 = new DisappearingCloud1(283, 460, cloudledge2);
+        //Cloud cloud5 = new Cloud();
+        addObject(disCloud2, 283, 460);
         
         cloudLedge cloudledge3 = new cloudLedge();
         addObject(cloudledge3,290,364);
@@ -75,10 +75,14 @@ public class CloudWorld2 extends CloudWorld
         Cloud cloud4 = new Cloud();
         addObject(cloud4, 152, 246);
         
+        //Dis
+        
         cloudLedge cloudledge5 = new cloudLedge();
         addObject(cloudledge5,247,134);
-        Cloud cloud5 = new Cloud();
-        addObject(cloud5, 247, 134);
+        cloudledge5.getImage().setTransparency(0);
+        DisappearingCloud1 disCloud1 = new DisappearingCloud1(247,134, cloudledge5);
+        //Cloud cloud5 = new Cloud();
+        addObject(disCloud1, 247, 134);
         
         cloudLedge cloudledge6 = new cloudLedge();
         addObject(cloudledge6,603,129);

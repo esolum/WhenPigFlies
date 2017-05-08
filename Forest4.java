@@ -21,6 +21,7 @@ public class Forest4 extends World
         setup();
         //pig4 = new Pig();
         gPig = new GravityPig(1);
+        music.playLoop();
         //addObject(pig4, 45, 545);
         addObject(gPig, 45, 545);
         addObject(new PassableForest(), 670, 380);
@@ -33,7 +34,7 @@ public class Forest4 extends World
         setup();
         //pig4 = new Pig(acc);
         gPig = new GravityPig(acc);
-        
+        music.playLoop();
         if (returning)
         {
             gPig.setImage("pigSprites/standingLeft.png");
@@ -83,11 +84,13 @@ public class Forest4 extends World
     {
        if (gPig.getX() < 10 && gPig.getY() > 400)
        {
+           music.stop();
            Greenfoot.setWorld(new Forest3(true, gPig.numacc()));
            
        }
        if (gPig.getX() > 760)
        {
+           music.stop();
            //Greenfoot.setWorld(new Forest5(gPig.numacc()));
            Greenfoot.setWorld(new Forest5(gPig.numacc()));
        }

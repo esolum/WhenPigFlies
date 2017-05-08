@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.*;
 /**
  * Write a description of class Industrial2 here.
  * 
@@ -106,5 +106,13 @@ public class Industrial2 extends World
             Greenfoot.setWorld(new Forest1(false, gPig.numacc()));
             
         }
+    }
+    
+    public void setBubbleLocation() {
+        ArrayList<MushBubble> bubbles = (ArrayList<MushBubble>)getObjects(MushBubble.class);
+        if(!bubbles.isEmpty()) {
+            bubbles.get(0).setLocation(gPig.getX()-175, gPig.getY() - 100);
+        }
+
     }
 }

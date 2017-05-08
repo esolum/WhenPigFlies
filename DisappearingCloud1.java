@@ -64,7 +64,6 @@ public class DisappearingCloud1 extends Cloud
     
     
     private void animateDisappearing() {
-        System.out.println("Transparency: " + curTrans);
         if(curTrans-rate >= 0) {
             curTrans -= rate; 
         }
@@ -75,7 +74,7 @@ public class DisappearingCloud1 extends Cloud
             
         }
         img.setTransparency(curTrans);
-        ledge.getImage().setTransparency(curTrans);
+        //ledge.getImage().setTransparency(curTrans);
         
     }
 }

@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.*;
 /**
  * Write a description of class CloudWorld1 here.
  * 
@@ -14,6 +14,8 @@ public class CloudWorld1 extends CloudWorld
     Pig pig;
     //DisappearingCloud disappearingcloud3;
     private int frameCount = 0;
+    private int bubbleCounter = 0;
+    private boolean displayBubble = true;
     /**
      * Constructor for objects of class CloudWorld1.
      * 
@@ -43,7 +45,18 @@ public class CloudWorld1 extends CloudWorld
 
     public void act() {
         frameCount++;
-
+        if(displayBubble) {
+            bubbleCounter++;
+            if(bubbleCounter <= 375) {
+                gPig.showCloudHint();
+            }
+            else {
+              bubbleCounter =0;
+              displayBubble = false;
+              gPig.removeCloudHint();
+            }
+        }
+        
         //Start playing music
         
         checkPigBoundaries();
@@ -52,14 +65,12 @@ public class CloudWorld1 extends CloudWorld
 
     private void checkPigBoundaries() {
         if(gPig.getY() < 20 && gPig.isJumping()){
-            System.out.println("Goin up bitch");
             music.stop();
             CloudWorld2 world = new CloudWorld2(gPig);
             Greenfoot.setWorld(world);
         }
         else if(gPig.getY() > 580) {
             //Ye died, son
-            System.out.println("Ye dyin son " + gPig.getY());
             music.stop();
             hurtScreen hurt = new hurtScreen(new CloudWorld1());
             Greenfoot.setWorld(hurt);
@@ -92,6 +103,13 @@ public class CloudWorld1 extends CloudWorld
         addObject(cloudledge6,217,212);
         cloudLedge cloudledge7 = new cloudLedge();
         addObject(cloudledge7,87,99);
+        cloudledge.getImage().setTransparency(0);
+        cloudledge2.getImage().setTransparency(0);
+        cloudledge3.getImage().setTransparency(0);
+        cloudledge4.getImage().setTransparency(0);
+        cloudledge5.getImage().setTransparency(0);
+        cloudledge6.getImage().setTransparency(0);
+        cloudledge7.getImage().setTransparency(0);
         
 
         Cloud cloud = new Cloud();
@@ -125,6 +143,14 @@ public class CloudWorld1 extends CloudWorld
 
         
         
+    }
+    
+    public void setBubbleLocation() {
+        ArrayList<MushBubble> bubbles = (ArrayList<MushBubble>)getObjects(MushBubble.class);
+        if(!bubbles.isEmpty()) {
+            bubbles.get(0).setLocation(gPig.getX()+150, gPig.getY() - 100);
+        }
+
     }
 }
 

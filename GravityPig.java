@@ -21,8 +21,10 @@ public class GravityPig extends Actor
     private int accLevel = 0;
     private boolean isWearing = false;
     private boolean jumping = false;
+    private boolean animate2 = false;
     private int hSpeed = 5;
     private int jumpTimer = 0;
+    private int bubbleCounter = 0;
     private int frameCount = 0;
     private Direction dir = Direction.RIGHT;
     MushBubble bubble = new MushBubble();
@@ -31,6 +33,7 @@ public class GravityPig extends Actor
     private int headbuttCounter = 0;
     private int headbuttMax = 20;
     private boolean headbutting = false;
+    private boolean displayBubble = false;
     
     GreenfootImage headbuttStandingLeft;// = new GreenfootImage("pigSprites/headbuttStandingLeft.png");
     GreenfootImage headbuttStandingRight;// = new GreenfootImage("pigSprites/headbuttStandingRight.png");
@@ -68,6 +71,16 @@ public class GravityPig extends Actor
         //d = vi + vft 
         //double oldVY = vY;
         frameCount++;
+        
+        //If the frame count is < 27, use the 1st stage walking images
+        //If the frame count is >= 27, use the 12nd stage walking images
+        if(frameCount%40 >= 20) {
+            animate2 = true;
+        }
+        else {
+            animate2 = false;
+        }
+        
         if(headbutting) {
             headbuttCounter++;
             if(headbuttCounter == headbuttMax) {
@@ -178,7 +191,10 @@ public class GravityPig extends Actor
         int newY = (int)(getY() + vY*delta);
         
         setLocation(getX(), newY);
+        
         checkMush();
+        
+        
         checkForPlatform();
         checkElevator();
         checkWearing();
@@ -204,12 +220,18 @@ public class GravityPig extends Actor
         }
         else {
             //System.out.println("Frame count: " + (frameCount%2));
-            if(getImage() == walkRight1) {
+            if(animate2) {
                 setImage(walkRight2);
             }
             else {
                 setImage(walkRight1);
             }
+            /*if(getImage() == walkRight1) {
+                setImage(walkRight2);
+            }
+            else {
+                setImage(walkRight1);
+            }*/
         }
         
         
@@ -226,12 +248,20 @@ public class GravityPig extends Actor
         }
         else {
             //System.out.println("Frame count: " + (frameCount%2));
-            if(getImage() == walkLeft2) {
+            if(animate2) {
+                //System.out.println("animate2: " + animate2);
+                setImage(walkLeft2);
+            }
+            else {
+                //System.out.println("animate2: " + animate2);
+                setImage(walkLeft1);
+            }
+            /*if(getImage() == walkLeft2) {
                 setImage(walkLeft1);
             }
             else {
                 setImage(walkLeft2);
-            }
+            }*/
         }
     }
     
@@ -284,22 +314,34 @@ public class GravityPig extends Actor
     }
     
     public void checkForPlatform() {
-        
         //ArrayList<Ground> groundList = (ArrayList<Ground>) getObjectsInRange(70, Ground.class);
         ArrayList<Ground> groundList = (ArrayList<Ground>) getObjectsAtOffset(0, getImage().getHeight()/2, Ground.class);
-        if(!groundList.isEmpty()) {
-           vY = 0;
-                jumping = false;
-                if(!headbutting) {
+        if(jumping && !groundList.isEmpty()) {
+            if(!headbutting) {
                     if(dir == Direction.LEFT) {
+                        
                         setImage(standingLeft);
                     }
                     else {
                         setImage(standingRight);
                     }
-                } 
+                }
         }
         
+        if(!groundList.isEmpty()) {
+           vY = 0;
+           jumping = false;
+                /*if(!headbutting) {
+                    if(dir == Direction.LEFT) {
+                        
+                        setImage(standingLeft);
+                    }
+                    else {
+                        setImage(standingRight);
+                    }
+                } */
+        }
+       
         
         /*if(!groundList.isEmpty()) {
             vY = 0;
@@ -515,12 +557,15 @@ public class GravityPig extends Actor
     }
    
     public void checkWearing() {
+        
         //Actor wearable = getOneObjectAtOffset(getImage().getWidth() / 2, getImage().getHeight() / 2, Wearable.class);
         ArrayList<Wearable> wearables = (ArrayList<Wearable>)getObjectsInRange(70, Wearable.class);
         if (!wearables.isEmpty()){
             accLevel++;
             setImages();
             isWearing = true;
+            displayBubble = true;
+            
             getWorld().removeObject(wearables.get(0));
             if (accLevel == 4)
             {
@@ -530,6 +575,7 @@ public class GravityPig extends Actor
         }
         else {
             isWearing = false;
+            
         }
     } 
     public boolean isJumping() {
@@ -541,15 +587,47 @@ public class GravityPig extends Actor
     }
     
     public void displayMessage() {
-        if (isWearing == true) {
+        if(displayBubble == true) {
+            bubbleCounter++;
+            if(bubbleCounter >= 440) {
+                displayBubble = false;
+                bubbleCounter = 0;
+                Industrial2 world = (Industrial2)getWorld();
+                world.removeObject(bubble);
+            }
+            else {
+                if (numacc() == 1) {
+                    bubble.setImage("wingConfirmation.png");
+                    Industrial2 world = (Industrial2)getWorld();
+                    world.addObject(bubble, getX() - 100, getY()-20);
+                
+                    world.setBubbleLocation();
+                }
+                else if (numacc() == 3) {
+                    bubble.setImage("featherConfirmation.png");
+                    Forest5 world = (Forest5)getWorld();
+                    world.addObject(bubble, getX() - 50, getY());
+                    
+                    world.setBubbleLocation();
+                }
+            }
+           
+        }
+        /*if (isWearing == true) {
+            System.out.println("Display");
             if (numacc() == 1) {
                 bubble.setImage("wingConfirmation.png");
+                Industrial2 world = (Industrial2)getWorld();
+                world.addObject(bubble, getX() - 50, getY());
+                
+                world.setBubbleLocation();
             }
             else if (numacc() == 3) {
                 bubble.setImage("featherConfirmation.png");
+                getWorld().addObject(bubble, getX() - 50, getY());
             }
-            getWorld().addObject(bubble, getX() - 50, getY());
-        }
+            
+        }*/
     }
     public void showLevelCompleteScreen() {
         
@@ -557,6 +635,19 @@ public class GravityPig extends Actor
     
     public double getVY() {
         return vY;
+    }
+    
+    public void showCloudHint() {
+        bubble.setImage("cloudHint.png");
+        CloudWorld1 world = (CloudWorld1)getWorld();
+        world.addObject(bubble, getX()+150, getY()-20);
+                
+        world.setBubbleLocation();
+    }
+    
+    public void removeCloudHint() {
+        CloudWorld1 world = (CloudWorld1)getWorld();
+        world.removeObject(bubble);
     }
 }
 

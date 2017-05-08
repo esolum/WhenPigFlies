@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.*;
 /**
  * Write a description of class Forest5 here.
  * 
@@ -18,7 +18,7 @@ public class Forest5 extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1);
-        
+        music.playLoop();
         gPig = new GravityPig(2);
         setBackground(new GreenfootImage("magic.jpeg"));
         
@@ -29,7 +29,7 @@ public class Forest5 extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1);
-        
+        music.playLoop();
         gPig = new GravityPig(acc);
         setBackground(new GreenfootImage("magic.jpeg"));
         
@@ -88,6 +88,7 @@ public class Forest5 extends World
     {
        if (gPig.getX() < 10)
        {
+           music.stop();
            Greenfoot.setWorld(new Forest4(true, gPig.numacc()));
        }
        if (gPig.getX() > 760)
@@ -98,7 +99,16 @@ public class Forest5 extends World
     }
     
     public void goToCloudWorld() {
+        music.stop();
         CloudWorld1 world = new CloudWorld1();
         Greenfoot.setWorld(world);
+    }
+    
+    public void setBubbleLocation() {
+        ArrayList<MushBubble> bubbles = (ArrayList<MushBubble>)getObjects(MushBubble.class);
+        if(!bubbles.isEmpty()) {
+            bubbles.get(0).setLocation(gPig.getX()-175, gPig.getY() - 100);
+        }
+
     }
 }
