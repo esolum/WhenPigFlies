@@ -15,6 +15,10 @@ public class GreenLedge extends Ground
     public void act() 
     {
         // Add your action code here.
+        
+    } 
+    public GreenLedge()
+    {
         setImage("GreenLedge.png");
-    }    
+    }
 }
