@@ -44,10 +44,6 @@ public class hurtScreen extends World
         if (bird.getX() < 20)
         {
             removeObject(bird);
-            if (prevWorld instanceof Forest3)
-            {
-                Greenfoot.setWorld(new Forest1(false, 1));
-            }
         }
     }
 }

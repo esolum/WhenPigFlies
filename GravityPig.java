@@ -13,7 +13,7 @@ public class GravityPig extends Actor
     private double vY; // Velocity in y direction
     private int gravity = 4;
     private int mass;
-    private int moveableDistance = 20;
+    private int moveableDistance = 30;
     private int initJumpVel = 30;
     private boolean goingUp = false;
     private int forceGravity;
@@ -459,8 +459,7 @@ public class GravityPig extends Actor
     {
         if (getOneObjectAtOffset(0, 0, Lake.class) != null)
         {
-            //Greenfoot.setWorld(new Forest1(false, 1));
-            Greenfoot.setWorld(new hurtScreen(getWorld()));
+            Greenfoot.setWorld(new Forest1(false, 1));
         }
     }
     
