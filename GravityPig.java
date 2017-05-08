@@ -158,6 +158,7 @@ public class GravityPig extends Actor
         setLocation(getX(), newY);
         
         checkForPlatform();
+        checkElevator();
         checkWearing();
         
         if (getWorld() instanceof FarmWorld) 
@@ -219,6 +220,25 @@ public class GravityPig extends Actor
         }
     }
     
+    public void checkElevator()
+    {
+        Actor touching = getOneIntersectingObject(Elevator.class);
+        int y = getY();
+        if (touching != null)
+        {
+            Elevator elevate = (Elevator)touching;
+            if (elevate.getY() <= 475 && elevate.getRise() == true) 
+            {
+                y = getY() - 1;
+            }
+            else if (elevate.getY() >= 105 && elevate.getRise() == false)
+            {
+                y = getY() + 1;
+            }
+        }
+        setLocation(getX(), y);
+    }
+    
     public void checkForPlatform() {
         
         //ArrayList<Ground> groundList = (ArrayList<Ground>) getObjectsInRange(70, Ground.class);
@@ -226,7 +246,6 @@ public class GravityPig extends Actor
         if(!groundList.isEmpty()) {
            vY = 0;
                 jumping = false;
-                System.out.println("Y is now " + getY());
                 if(!headbutting) {
                     if(dir == Direction.LEFT) {
                         setImage(standingLeft);

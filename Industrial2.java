@@ -21,6 +21,8 @@ public class Industrial2 extends World
         pig = new Pig();
         gPig = new GravityPig(0);
         setBackground("industrialBG.png");
+        
+        addObject(new IndustrialRoad(), 400, 560);
 
         BlueLedge roofLedge = new BlueLedge();
         roofLedge.getImage().scale(370, 15);
