@@ -55,6 +55,10 @@ public class Bird extends Actor
                 {
                     flyInFast();
                 }
+                else if (getWorld() instanceof FinishScreen)
+                {
+                    flyIn();
+                }
                 break;
             case 2:
                 if (getWorld() instanceof FarmWorld)
@@ -64,6 +68,10 @@ public class Bird extends Actor
                 else if (getWorld() instanceof hurtScreen)
                 {
                     tellPigHurt();
+                }
+                else if (getWorld() instanceof FinishScreen)
+                {
+                    tellPigFinished();
                 }
                 break;
         }
@@ -181,22 +189,41 @@ public class Bird extends Actor
         }
         else if (frameCount >= 350)// && frameCount < 700)
         {
-            //animateTalking();
-            //bubble.setImage("farmSpeech9.png");
-            //getWorld().addObject(bubble, 420, 100);
             getWorld().removeObject(bubble);
             talking = false;
             x-= 5;
             animateFlying();
             setLocation(x, getY());
         }
-        /* else if (frameCount >= 1130)
+    }
+    public void tellPigFinished()
+    {
+        talking = true;
+        if (frameCount >= 100 && frameCount < 200)
+        {
+            animateTalking();
+            bubble.setImage("finishSpeech1.png");
+            getWorld().addObject(bubble, 410, 100);
+        }
+        else if (frameCount >= 300 && frameCount < 400)
+        {
+            animateTalking();
+            bubble.setImage("finishSpeech2.png");
+            getWorld().addObject(bubble, 410, 100);
+        }
+        else if (frameCount >= 500 && frameCount < 600)
+        {
+            animateTalking();
+            bubble.setImage("finishSpeech3.png");
+            getWorld().addObject(bubble, 410, 100);
+        }
+        else if (frameCount >= 700)// && frameCount < 700)
         {
             getWorld().removeObject(bubble);
             talking = false;
             x--;
             animateFlying();
             setLocation(x, getY());
-        } */
+        }
     }
 }

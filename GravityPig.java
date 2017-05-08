@@ -187,7 +187,6 @@ public class GravityPig extends Actor
         {
             runNarration();
         }
-        
     }   
     
     public void moveRight()
@@ -512,7 +511,7 @@ public class GravityPig extends Actor
             }
         }
     }
-    
+   
     public void checkWearing() {
         //Actor wearable = getOneObjectAtOffset(getImage().getWidth() / 2, getImage().getHeight() / 2, Wearable.class);
         ArrayList<Wearable> wearables = (ArrayList<Wearable>)getObjectsInRange(70, Wearable.class);
@@ -520,7 +519,10 @@ public class GravityPig extends Actor
             accLevel++;
             setImages();
             getWorld().removeObject(wearables.get(0));
-            
+            if (accLevel == 4)
+            {
+                Greenfoot.setWorld(new FinishScreen());
+            }
             showLevelCompleteScreen();
             
         }

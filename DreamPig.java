@@ -11,21 +11,37 @@ public class DreamPig extends Actor
     private int frameCount = 0;
     GreenfootImage flyingUp = new GreenfootImage("pigSprites/flying-up.png");
     GreenfootImage flyingDown = new GreenfootImage("pigSprites/flying-down.png");
-    
     MushBubble bubble = new MushBubble();
+    
     public DreamPig() {
         setImage(flyingUp);
     }
-    /**
-     * Act - do whatever the DreamPig wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public DreamPig(boolean mirrored) 
+    {    
+        if (mirrored)
+        {
+            flyingUp = new GreenfootImage("pigSprites/flying-up-mirrored.png");
+            flyingDown = new GreenfootImage("pigSprites/flying-down-mirrored.png");
+            setImage(flyingUp);
+        }
+        else
+        {
+            setImage(flyingUp);
+        }
+    }
     public void act() 
     {
         // Add your action code here.
         frameCount++;
         animateFlying();
-        dream();
+        if (getWorld() instanceof DreamWorld)
+        {
+            dream();
+        }
+        else if (getWorld() instanceof FinishScreen)
+        {
+            runEnd();
+        }
     }    
     
     public void animateFlying() {
@@ -80,7 +96,17 @@ public class DreamPig extends Actor
             world.music.pause();
             Greenfoot.setWorld(new FarmWorld());
         }
-        
-        
+    }
+    public void runEnd()
+    {
+        if (frameCount >= 800) 
+        {
+            int x = getX();
+            if (x > 0)
+            {
+                x--;  
+                setLocation(x, getY());
+            }
+        }
     }
 }
