@@ -49,7 +49,14 @@ public class Bird extends Actor
                 flyIn();
                 break;
             case 2:
-                talkToPig();
+                if (getWorld() instanceof FarmWorld)
+                {
+                    talkToPig();
+                }
+                else if (getWorld() instanceof hurtScreen)
+                {
+                    tellPigHurt();
+                }
                 break;
         }
         
@@ -129,5 +136,41 @@ public class Bird extends Actor
             setLocation(x, getY());
         }
         
-    }   
+    }  
+    public void tellPigHurt()
+    {
+        talking = true;
+        if (frameCount >= 400 && frameCount < 550)
+        {
+            animateTalking();
+            bubble.setImage("hurtSpeech1.png");
+            getWorld().addObject(bubble, 420, 100);
+        }
+        else if (frameCount >= 700 && frameCount < 850)
+        {
+            animateTalking();
+            bubble.setImage("hurtSpeech2.png");
+            //getWorld().addObject(bubble, 420, 100);
+        }
+        else if (frameCount >= 1000 && frameCount < 1150)
+        {
+            animateTalking();
+            bubble.setImage("hurtSpeech3.png");
+            //getWorld().addObject(bubble, 420, 100);
+        }
+        else if (frameCount >= 1150 && frameCount < 1130)
+        {
+            //animateTalking();
+            //bubble.setImage("farmSpeech9.png");
+            //getWorld().addObject(bubble, 420, 100);
+        }
+        else if (frameCount >= 1130)
+        {
+            getWorld().removeObject(bubble);
+            talking = false;
+            x--;
+            animateFlying();
+            setLocation(x, getY());
+        }
+    }
 }
